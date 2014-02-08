@@ -18,15 +18,11 @@ WS.Constants = {
         initialize: function (options) {
             this.options = options || {};
 
-            this.draggingController = new WS.DraggingController({
-                placement: WS.Constants.TOP
-            });
+            this.draggingController = new WS.DraggingController();
 
             this.topWorkspaceController = new WS.WorkspaceController({
                 placement: WS.Constants.TOP
             });
-
-            console.log('runned');
         }
     });
 

@@ -15,7 +15,7 @@
             WS.DraggingController = Backbone.View.extend();
         },
 
-        unmock: function () {
+        unMock: function () {
             WS.WorkspaceController = Test.mocked.workspaceControllerMock;
             WS.DraggingController = Test.mocked.draggingControllerMock;
         },
@@ -34,9 +34,7 @@
         },
 
         draggingControllerInitTest: function () {
-            W.expect(Test.draggingControllerSpy).toHaveBeenCalledWith({
-                placement: WS.Constants.TOP
-            });
+            W.expect(Test.draggingControllerSpy).toHaveBeenCalledWith();
         }
     });
 }(WS, Backbone, window));

@@ -2,3 +2,7 @@
 body {
   background-color: black;
   color: white; }
+
+/* line 5, ../sass/workspaces.sass */
+.dragginsCollector {
+  background-color: #330033; }
