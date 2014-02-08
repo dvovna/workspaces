@@ -15,6 +15,7 @@
         },
 
         onMousedown: function (e) {
+            $(e.target).attr("draggable", true);
             $(document).on("mousemove.ws", this.onMouseMove);
             this.timerId = W.setTimeout(this.triggerDragging, 1000);
         },
@@ -24,6 +25,7 @@
 
             $(document).off("mousemove.ws");
             W.clearTimeout(this.timerId);
+            this.trigger('dragged');
         },
 
         onMouseMove: function () {
