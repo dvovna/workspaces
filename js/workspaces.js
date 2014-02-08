@@ -1,29 +1,33 @@
-var WS = {};
+var WS = WS || {};
 var Workspaces = {};
 WS.Constants = {};
-// WS.Constants = {
-// 	TOP: "top",
-// 	LEFT: "left",
-// 	BOTTOM: "bottom",
-// 	RIGHT: "right"
-// }
+WS.Constants = {
+    TOP: "top",
+    LEFT: "left",
+    BOTTOM: "bottom",
+    RIGHT: "right"
+};
 
 /*jslint nomen:true*/
 /*global WS, $, Backbone, _*/
 
-(function () {
-	"use strict";
+(function (W) {
+    "use strict";
 
-	Workspaces = Backbone.Router.extend({
-		initialize: function (options) {
-			this.options = options || {};
+    W.Workspaces = Backbone.Router.extend({
+        initialize: function (options) {
+            this.options = options || {};
 
-			this.topWorkspace = new WS.Workspace({
-				placement: WS.Constants.TOP
-			});
+            this.draggingController = new WS.DraggingController({
+                placement: WS.Constants.TOP
+            });
 
-			console.log('runned');
-		}
-	});
+            this.topWorkspaceController = new WS.WorkspaceController({
+                placement: WS.Constants.TOP
+            });
 
-}());
+            console.log('runned');
+        }
+    });
+
+}(window));

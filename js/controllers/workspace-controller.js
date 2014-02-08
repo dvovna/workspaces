@@ -4,7 +4,7 @@
 (function () {
     "use strict";
 
-    WS.Workspace = Backbone.View.extend({
+    WS.WorkspaceController = Backbone.View.extend({
         initialize: function (options) {
             console.log('workspace!!');
         }
