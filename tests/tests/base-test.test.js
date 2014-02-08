@@ -1,13 +1,13 @@
 /*jslint nomen:true*/
-/*global window, JST, $, Backbone, _, jasmine, Test*/
+/*global window, WS, $, Backbone, _, jasmine, Test*/
 
-var JST = JST || {};
+var WS = WS || {};
 var Test = {};
 
-(function (window, JST, $, Backbone, _, jasmine) {
+(function (window, WS, $, Backbone, _, jasmine) {
     "use strict";
 
-    JST.Test = Backbone.View.extend({
+    WS.Test = Backbone.View.extend({
         obj: {},
         mocked: {},
 
@@ -49,4 +49,4 @@ var Test = {};
         }
     });
 
-}(window, JST, $, Backbone, _, jasmine));
+}(window, WS, $, Backbone, _, jasmine));

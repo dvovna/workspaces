@@ -1,7 +1,12 @@
+/*jslint nomen:true*/
+/*global WS, $, Backbone, _*/
+
 (function () {
-	WS.Workspace = Backbone.View.extend({
-		intialize: function (options) {
-			console.log('workspace!!');
-		}
-	})
+    "use strict";
+
+    WS.Workspace = Backbone.View.extend({
+        initialize: function (options) {
+            console.log('workspace!!');
+        }
+    });
 }());
