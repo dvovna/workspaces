@@ -1,24 +1,17 @@
 /*jslint nomen:true*/
-/*global window, WS, $, Backbone, _*/
+/*global window, document, WS, $, Backbone, _*/
 
 (function (W, WS, $, Backbone, U) {
     "use strict";
 
     WS.DraggingController = Backbone.View.extend({
-        tagName: "div",
-
         initialize: function (options) {
             this.options = options || {};
 
             U.bindAll(this, "onMousedown", "onMouseup", "onMouseMove", "triggerDragging");
 
-            console.log('dragger!!');
             $('img').on("mousedown.ws", this.onMousedown);
             $('img').on("mouseup.ws", this.onMouseup);
-        },
-
-        render: function () {
-
         },
 
         onMousedown: function (e) {
@@ -41,7 +34,6 @@
         },
 
         triggerDragging: function () {
-            console.log('trigger');
             $(document).off("mousemove.ws");
             this.trigger('dragging');
         }
