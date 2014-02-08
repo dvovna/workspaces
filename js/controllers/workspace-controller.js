@@ -7,6 +7,9 @@
     WS.WorkspaceController = Backbone.View.extend({
         initialize: function (options) {
             console.log('workspace!!');
+            this.collectorView = new WS.CollectorView();
+
+            $("body").append(this.collectorView.$el);
         }
     });
 }());

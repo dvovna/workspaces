@@ -3,6 +3,16 @@ body {
   background-color: black;
   color: white; }
 
-/* line 5, ../sass/workspaces.sass */
-.dragginsCollector {
-  background-color: #330033; }
+/* line 6, ../sass/workspaces.sass */
+.wsCollector {
+  display: block;
+  background-color: #330033;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 80px;
+  width: 100%;
+  opacity: 0.8; }
+  /* line 15, ../sass/workspaces.sass */
+  .wsCollector.wsHidden {
+    display: none; }
