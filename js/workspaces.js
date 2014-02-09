@@ -19,10 +19,11 @@ WS.Constants = {
             this.options = options || {};
 
             this.topWorkspaceModel = new WS.WorkspaceModel();
-
             this.topWorkspaceController = new WS.WorkspaceController({
                 model: this.topWorkspaceModel
             });
+
+            this.switcherController = new WS.SwitcherController();
 
             $("body").append(this.topWorkspaceController.$el);
         }
