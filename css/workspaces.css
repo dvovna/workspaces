@@ -3,7 +3,11 @@ body {
   background-color: black;
   color: white; }
 
-/* line 6, ../sass/workspaces.sass */
+/* line 5, ../sass/workspaces.sass */
+a {
+  color: white; }
+
+/* line 8, ../sass/workspaces.sass */
 .wsCollector {
   display: block;
   background-color: #330033;
@@ -13,6 +17,6 @@ body {
   height: 80px;
   width: 100%;
   opacity: 0.6; }
-  /* line 15, ../sass/workspaces.sass */
+  /* line 17, ../sass/workspaces.sass */
   .wsCollector.wsHidden {
     display: none; }

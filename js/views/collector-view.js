@@ -8,6 +8,8 @@
         tagName: "div",
         className: "wsHidden wsCollector",
 
+        bodyEl: $("body"),
+
         initialize: function (options) {
             this.options = options || {};
 
@@ -21,8 +23,9 @@
             this.$el.on("dragover.ws", this.allowDropping);
             this.$el.on("drop.ws", this.onDrop);
 
-            $("body").on("dragover.ws", this.allowDropping);
-            $("body").on("drop.ws", this.hide);
+            this.bodyEl.on("dragover.ws", this.allowDropping);
+            this.bodyEl.on("drop.ws", this.hide);
+            this.bodyEl.on("click.ws", this.hide);
         },
 
         show: function () {
@@ -34,6 +37,8 @@
         },
 
         onDrop: function () {
+            this.trigger("wsDropped");
+
             this.hide();
         },
 

@@ -7,6 +7,7 @@
     WS.CollectorViewTest = WS.Test.extend({
         before: function () {
             Test.draggingControllerInitSpy = W.spyOn(WS.DraggingController.prototype, "initialize");
+            Test.triggerSpy = W.spyOn(WS.CollectorView.prototype, "trigger");
 
             Test.obj = new WS.CollectorView();
         },
@@ -19,6 +20,12 @@
             Test.obj.draggingController.trigger('dragging');
 
             W.expect(Test.obj.$el).not.toHaveClass('wsHidden');
+        },
+
+        onDropppedEventTest: function () {
+            Test.obj.$el.trigger("drop.ws");
+
+            W.expect(Test.triggerSpy).toHaveBeenCalledWith("wsDropped");
         }
     });
 }(window));
