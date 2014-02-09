@@ -9,8 +9,15 @@
             this.options = options || {};
 
             this.collectorView = new WS.CollectorView();
+            this.workspaceView = new WS.WorkspaceView();
+
+            this.collectorView.on("dropped.ws", this.onDropped, this);
 
             $("body").append(this.collectorView.$el);
+        },
+
+        onDropped: function () {
+            this.workspaceView.show();
         }
     });
 }());

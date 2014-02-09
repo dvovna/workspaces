@@ -37,7 +37,7 @@
         },
 
         onDrop: function () {
-            this.trigger("wsDropped");
+            this.trigger("dropped.ws");
 
             this.hide();
         },

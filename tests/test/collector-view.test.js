@@ -25,7 +25,7 @@
         onDropppedEventTest: function () {
             Test.obj.$el.trigger("drop.ws");
 
-            W.expect(Test.triggerSpy).toHaveBeenCalledWith("wsDropped");
+            W.expect(Test.triggerSpy).toHaveBeenCalledWith("dropped.ws");
         }
     });
 }(window));

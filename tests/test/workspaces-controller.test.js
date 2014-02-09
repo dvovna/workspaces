@@ -16,6 +16,7 @@
         },
 
         unMock: function () {
+            console.log('unMock');
             WS.WorkspaceController = Test.mocked.workspaceControllerMock;
             WS.WorkspaceModel = Test.mocked.workspaceModelMock;
         },
