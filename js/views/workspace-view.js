@@ -5,12 +5,15 @@
     "use strict";
 
     WS.WorkspaceView = Backbone.View.extend({
+        tagName: "div",
+        className: "wsWorkspace top",
+
         initialize: function (options) {
             console.log('test!!');
         },
 
         show: function () {
-            this.$el.show();
+            this.$el.animate({top: "0px"}, 1000);
         }
     });
 }(window, WS, $, Backbone, _));

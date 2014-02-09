@@ -14,6 +14,7 @@
             this.collectorView.on("dropped.ws", this.onDropped, this);
 
             $("body").append(this.collectorView.$el);
+            $("body").append(this.workspaceView.$el);
         },
 
         onDropped: function () {

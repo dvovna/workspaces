@@ -20,3 +20,15 @@ a {
   /* line 17, ../sass/workspaces.sass */
   .wsCollector.wsHidden {
     display: none; }
+
+/* line 20, ../sass/workspaces.sass */
+.wsWorkspace {
+  display: inline-block;
+  background-color: red;
+  height: 1000px;
+  position: absolute;
+  width: 100%; }
+  /* line 26, ../sass/workspaces.sass */
+  .wsWorkspace.top {
+    top: -5000px;
+    left: 0px; }
