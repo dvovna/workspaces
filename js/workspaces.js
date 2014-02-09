@@ -9,7 +9,7 @@ WS.Constants = {
 };
 
 /*jslint nomen:true*/
-/*global WS, $, Backbone, _*/
+/*global window, WS, $, Backbone, _*/
 
 (function (W) {
     "use strict";
@@ -18,8 +18,10 @@ WS.Constants = {
         initialize: function (options) {
             this.options = options || {};
 
+            this.topWorkspaceModel = new WS.WorkspaceModel();
+
             this.topWorkspaceController = new WS.WorkspaceController({
-                placement: WS.Constants.TOP
+                model: this.topWorkspaceModel
             });
 
             $("body").append(this.topWorkspaceController.$el);
