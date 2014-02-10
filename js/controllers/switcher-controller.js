@@ -5,23 +5,20 @@
     "use strict";
 
     WS.SwitcherController = Backbone.View.extend({
-        events: {
-            "click #wsSwitcher": "onSwitch"
-        },
-
         initialize: function (options) {
-            console.log('switcher!!');
+            this.options = options || {};
+
             _.bindAll(this, "onSwitch");
 
-            $(".wsSwitcher").on("click", this.onSwitch);
+            this.switcherEl = $(this.options.switcherId) || $(".switcherId");
 
-
-            this.switcherView = new WS.SwitcherView();
+            this.switcherEl.on("click", this.onSwitch);
         },
 
         onSwitch: function (e) {
             e.preventDefault();
-            console.log("switch!");
+
+            this.trigger("wsSwitch", 1);
         }
     });
 }(window, WS, $, Backbone, _));
