@@ -14,6 +14,9 @@
             _.bindAll(this, "onSwitch");
 
             $(".wsSwitcher").on("click", this.onSwitch);
+
+
+            this.switcherView = new WS.SwitcherView();
         },
 
         onSwitch: function (e) {
