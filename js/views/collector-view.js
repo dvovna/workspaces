@@ -6,8 +6,6 @@
 
     WS.CollectorView = Backbone.View.extend({
         tagName: "div",
-        className: "wsHidden wsCollector",
-
         bodyId: "body",
 
         initialize: function (options) {

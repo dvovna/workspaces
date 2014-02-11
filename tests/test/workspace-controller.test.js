@@ -23,14 +23,18 @@
             Test.collectorViewSpy = W.spyOn(WS.WorkspaceView.prototype, "initialize");
 
             Test.obj = new WS.WorkspaceController({
-                state: new Backbone.Model()
+                placement: "top"
             });
         },
 
         workspaceInitTest: function () {
-            W.expect(Test.workspaceViewSpy).toHaveBeenCalledWith();
+            W.expect(Test.workspaceViewSpy).toHaveBeenCalledWith({
+                className: "top wsHidden wsCollector"
+            });
 
-            W.expect(Test.collectorViewSpy).toHaveBeenCalledWith();
+            W.expect(Test.collectorViewSpy).toHaveBeenCalledWith({
+                className : 'top wsWorkspace'
+            });
         }
     });
 }(WS, Backbone, window));

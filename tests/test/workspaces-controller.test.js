@@ -34,16 +34,20 @@
             Test.switcherControllerSpy = W.spyOn(WS.SwitcherController.prototype, "initialize");
             Test.workspacesStateModelSpy = W.spyOn(WS.WorkspacesStateModel.prototype, "initialize");
 
-            Test.obj = new W.Workspaces();
+            Test.obj = new W.Workspaces({
+                switcherId: "test"
+            });
         },
 
         initTest: function () {
             W.expect(Test.workspaceControllerSpy).toHaveBeenCalledWith({
                 model: Test.obj.topWorkspaceModel,
-                state: Test.obj.state
+                placement: "top"
             });
             W.expect(Test.workSpaceModelSpy).toHaveBeenCalledWith();
-            W.expect(Test.switcherControllerSpy).toHaveBeenCalledWith();
+            W.expect(Test.switcherControllerSpy).toHaveBeenCalledWith({
+                switcherId: "test"
+            });
             W.expect(Test.workspacesStateModelSpy).toHaveBeenCalledWith();
         }
     });

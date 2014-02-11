@@ -8,23 +8,26 @@
         initialize: function (options) {
             this.options = options || {};
 
-            this.collectorView = new WS.CollectorView();
-            this.workspaceView = new WS.WorkspaceView();
+            this.collectorView = new WS.CollectorView({
+                className: this.options.placement + " wsHidden wsCollector"
+            });
+            this.workspaceView = new WS.WorkspaceView({
+                className: this.options.placement + " wsWorkspace"
+            });
+
             this.state = this.options.state || {};
 
             this.collectorView.on("dropped.ws", this.onDropped, this);
 
             $("body").append(this.collectorView.$el);
             $("body").append(this.workspaceView.$el);
-
-            this.state.on("change:active", this.onStateChange, this);
         },
 
         onDropped: function () {
             this.workspaceView.show();
         },
 
-        onStateChange: function () {
+        showWS: function () {
             this.workspaceView.show();
         }
     });

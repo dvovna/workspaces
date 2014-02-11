@@ -6,7 +6,6 @@
 
     WS.WorkspaceView = Backbone.View.extend({
         tagName: "div",
-        className: "wsWorkspace top",
 
         initialize: function (options) {
             this.options = options || {};

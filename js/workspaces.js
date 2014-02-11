@@ -27,7 +27,7 @@ WS.Constants = {
             this.topWorkspaceModel = new WS.WorkspaceModel();
             this.topWorkspaceController = new WS.WorkspaceController({
                 model: this.topWorkspaceModel,
-                state: this.state
+                placement: "top"
             });
 
             this.switcherController = new WS.SwitcherController({
@@ -50,7 +50,14 @@ WS.Constants = {
         },
 
         onStateChange: function () {
+            var active = this.state.get("active");
+
+            this.showWS(active);
             this.navigate($.param(this.state.attributes));
+        },
+
+        showWS: function (active) {
+            if (active === 1) { this.topWorkspaceController.showWS(); }
         },
 
         deparam: function (querystring) {
