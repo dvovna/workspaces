@@ -38,5 +38,5 @@ a {
   width: 100%; }
   /* line 33, ../sass/workspaces.sass */
   .wsWorkspace.top {
-    top: -5000px;
+    bottom: 1000px;
     left: 0px; }

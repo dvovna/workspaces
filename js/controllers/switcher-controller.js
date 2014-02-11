@@ -10,7 +10,7 @@
 
             _.bindAll(this, "onSwitch");
 
-            this.switcherEl = $(this.options.switcherId) || $(".switcherId");
+            this.switcherEl = this.options.switcherId ? $(this.options.switcherId) : $(".wsSwitcher");
 
             this.switcherEl.on("click", this.onSwitch);
         },
@@ -18,7 +18,7 @@
         onSwitch: function (e) {
             e.preventDefault();
 
-            this.trigger("wsSwitch", 1);
+            this.trigger("switch", 1);
         }
     });
 }(window, WS, $, Backbone, _));

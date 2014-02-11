@@ -9,11 +9,12 @@
         className: "wsWorkspace top",
 
         initialize: function (options) {
-            console.log('test!!');
+            this.options = options || {};
+            console.log('workspace view!!');
         },
 
         show: function () {
-            this.$el.animate({top: "0px"}, 1000);
+            this.$el.animate({bottom: "0px"}, 1000);
         }
     });
 }(window, WS, $, Backbone, _));

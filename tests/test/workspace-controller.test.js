@@ -22,7 +22,9 @@
             Test.workspaceViewSpy = W.spyOn(WS.CollectorView.prototype, "initialize");
             Test.collectorViewSpy = W.spyOn(WS.WorkspaceView.prototype, "initialize");
 
-            Test.obj = new WS.WorkspaceController();
+            Test.obj = new WS.WorkspaceController({
+                state: new Backbone.Model()
+            });
         },
 
         workspaceInitTest: function () {
