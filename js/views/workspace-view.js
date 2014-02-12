@@ -13,7 +13,19 @@
         },
 
         show: function () {
-            this.$el.animate({bottom: "0px"}, 1000);
+            var coords = {};
+
+            coords[this.options.placement] = "0px";
+
+            this.$el.animate(coords, 1000);
+        },
+
+        hide: function () {
+            var coords = {};
+
+            coords[this.options.placement] = "-1500px";
+
+            this.$el.animate(coords, 500);
         }
     });
 }(window, WS, $, Backbone, _));

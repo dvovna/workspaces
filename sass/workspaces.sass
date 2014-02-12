@@ -1,6 +1,7 @@
 body
     background-color: yellow
     color: white
+    overflow: hidden
 
 a
     color: white
@@ -26,10 +27,19 @@ a
 .wsWorkspace
     display: inline-block
     background-color: red
-    height: 1000px
+    height: 1000px //height of a screen
     position: absolute
     opacity: 0.9
     width: 100%
     &.top
-        bottom: 1000px
+        top: -1500px //should be a height of a screen
         left: 0px
+    &.right
+        right: -1500px //should be a width of a screen
+        top: 0px
+    &.bottom
+        bottom: -1500px //should be a width of a screen
+        left: 0px
+    &.left
+        left: -1500px //should be a width of a screen
+        top: 0px

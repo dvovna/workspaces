@@ -27,7 +27,15 @@ WS.Constants = {
             this.topWorkspaceModel = new WS.WorkspaceModel();
             this.topWorkspaceController = new WS.WorkspaceController({
                 model: this.topWorkspaceModel,
-                placement: "top"
+                placement: WS.Constants.TOP
+            });
+            this.rightWorkspaceController = new WS.WorkspaceController({
+                model: this.topWorkspaceModel,
+                placement: WS.Constants.RIGHT
+            });
+            this.leftWorkspaceController = new WS.WorkspaceController({
+                model: this.topWorkspaceModel,
+                placement: WS.Constants.LEFT
             });
 
             this.switcherController = new WS.SwitcherController({
@@ -57,7 +65,26 @@ WS.Constants = {
         },
 
         showWS: function (active) {
-            if (active === 1) { this.topWorkspaceController.showWS(); }
+            active = parseInt(active);
+            if (active === 0) { this.hideAllWS(); }
+            if (active === 1) {
+                this.hideAllWS();
+                this.leftWorkspaceController.showWS();
+            }
+            if (active === 2) {
+                this.hideAllWS();
+                this.topWorkspaceController.showWS();
+            }
+            if (active === 3) {
+                this.hideAllWS();
+                this.rightWorkspaceController.showWS();
+            }
+        },
+
+        hideAllWS: function () {
+            this.leftWorkspaceController.hideWS();
+            this.topWorkspaceController.hideWS();
+            this.rightWorkspaceController.hideWS();
         },
 
         deparam: function (querystring) {

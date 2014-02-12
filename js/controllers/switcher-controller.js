@@ -18,7 +18,7 @@
         onSwitch: function (e) {
             e.preventDefault();
 
-            this.trigger("switch", 1);
+            this.trigger("switch", parseInt($("#wsNumber").val())); //should be correct number
         }
     });
 }(window, WS, $, Backbone, _));

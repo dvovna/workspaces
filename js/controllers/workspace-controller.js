@@ -12,7 +12,8 @@
                 className: this.options.placement + " wsHidden wsCollector"
             });
             this.workspaceView = new WS.WorkspaceView({
-                className: this.options.placement + " wsWorkspace"
+                className: this.options.placement + " wsWorkspace",
+                placement: this.options.placement
             });
 
             this.state = this.options.state || {};
@@ -29,6 +30,10 @@
 
         showWS: function () {
             this.workspaceView.show();
+        },
+
+        hideWS: function () {
+            this.workspaceView.hide();
         }
     });
 }());

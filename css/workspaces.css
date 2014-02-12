@@ -1,20 +1,21 @@
 /* line 1, ../sass/workspaces.sass */
 body {
   background-color: yellow;
-  color: white; }
+  color: white;
+  overflow: hidden; }
 
-/* line 5, ../sass/workspaces.sass */
+/* line 6, ../sass/workspaces.sass */
 a {
   color: white; }
 
-/* line 8, ../sass/workspaces.sass */
+/* line 9, ../sass/workspaces.sass */
 .wsSwitcher {
   display: block;
   background: url(../gfx/icon.png) no-repeat;
   height: 30px;
   width: 30px; }
 
-/* line 14, ../sass/workspaces.sass */
+/* line 15, ../sass/workspaces.sass */
 .wsCollector {
   display: block;
   background-color: #330033;
@@ -24,11 +25,11 @@ a {
   height: 80px;
   width: 100%;
   opacity: 0.8; }
-  /* line 23, ../sass/workspaces.sass */
+  /* line 24, ../sass/workspaces.sass */
   .wsCollector.wsHidden {
     display: none; }
 
-/* line 26, ../sass/workspaces.sass */
+/* line 27, ../sass/workspaces.sass */
 .wsWorkspace {
   display: inline-block;
   background-color: red;
@@ -36,7 +37,19 @@ a {
   position: absolute;
   opacity: 0.9;
   width: 100%; }
-  /* line 33, ../sass/workspaces.sass */
+  /* line 34, ../sass/workspaces.sass */
   .wsWorkspace.top {
-    bottom: 1000px;
+    top: -1500px;
     left: 0px; }
+  /* line 37, ../sass/workspaces.sass */
+  .wsWorkspace.right {
+    right: -1500px;
+    top: 0px; }
+  /* line 40, ../sass/workspaces.sass */
+  .wsWorkspace.bottom {
+    bottom: -1500px;
+    left: 0px; }
+  /* line 43, ../sass/workspaces.sass */
+  .wsWorkspace.left {
+    left: -1500px;
+    top: 0px; }
