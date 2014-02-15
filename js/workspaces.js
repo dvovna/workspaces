@@ -42,49 +42,64 @@ WS.Constants = {
                 switcherId: this.options.switcherId
             });
 
-            $("body").append(this.topWorkspaceController.$el);
+            this.switcherController.on("switching", this.onWorkspaceSwitching, this);
 
-            this.switcherController.on("switch", this.onWorkspaceSwitch, this);
-
-            this.state.on("change", this.onStateChange, this);
+            this.state.on("change:active", this.onStateChangeActive, this);
+            this.state.on("change:switching", this.onStateChangeSwitching, this);
         },
 
         index: function (args) {
+            if (!args) { return; }
             this.state.set(this.deparam(args));
         },
 
-        onWorkspaceSwitch: function (index) {
-            this.state.set("active", index);
+        onWorkspaceSwitching: function (flag) {
+            console.log('tut', flag);
+            this.state.set("switching", flag);
         },
 
-        onStateChange: function () {
+        onStateChangeActive: function () {
             var active = this.state.get("active");
 
-            this.showWS(active);
+            if (active) { this.showWS(active); }
             this.navigate($.param(this.state.attributes));
+        },
+
+        onStateChangeSwitching: function () {
+            var switching = this.state.get("switching");
+            console.log('here', switching);
+
+            if (!switching) { this.hideAllSwitchers(); }
+            if (switching) { this.showAllCollectors(); }
         },
 
         showWS: function (active) {
             active = parseInt(active);
-            if (active === 0) { this.hideAllWS(); }
-            if (active === 1) {
-                this.hideAllWS();
-                this.leftWorkspaceController.showWS();
-            }
-            if (active === 2) {
-                this.hideAllWS();
-                this.topWorkspaceController.showWS();
-            }
-            if (active === 3) {
-                this.hideAllWS();
-                this.rightWorkspaceController.showWS();
-            }
+
+            this.hideAllWS();
+
+            if (active === 1) { this.leftWorkspaceController.showWS(); }
+            if (active === 2) { this.topWorkspaceController.showWS(); }
+            if (active === 3) { this.rightWorkspaceController.showWS(); }
         },
 
         hideAllWS: function () {
             this.leftWorkspaceController.hideWS();
             this.topWorkspaceController.hideWS();
             this.rightWorkspaceController.hideWS();
+        },
+
+        hideAllSwitchers: function () {
+            this.leftWorkspaceController.hideCollector();
+            this.topWorkspaceController.hideCollector();
+            this.rightWorkspaceController.hideCollector();
+        },
+
+        showAllCollectors: function () {
+            console.log('gggg');
+            this.leftWorkspaceController.showCollector();
+            this.topWorkspaceController.showCollector();
+            this.rightWorkspaceController.showCollector();
         },
 
         deparam: function (querystring) {

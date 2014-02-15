@@ -34,6 +34,13 @@
 
         hideWS: function () {
             this.workspaceView.hide();
+        },
+
+        showCollector: function () {
+            this.collectorView.show();
+        },
+        hideCollector: function () {
+            this.collectorView.hide();
         }
     });
 }());

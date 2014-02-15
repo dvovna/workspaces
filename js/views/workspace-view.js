@@ -6,6 +6,9 @@
 
     WS.WorkspaceView = Backbone.View.extend({
         tagName: "div",
+        events: {
+            "click": "hide"
+        },
 
         initialize: function (options) {
             this.options = options || {};
