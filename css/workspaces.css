@@ -1,42 +1,61 @@
-/* line 1, ../sass/workspaces.sass */
-body {
-  background-color: yellow;
-  color: white; }
-
-/* line 5, ../sass/workspaces.sass */
-a {
-  color: white; }
-
-/* line 8, ../sass/workspaces.sass */
+/* line 3, ../sass/workspaces.sass */
 .wsSwitcher {
   display: block;
   background: url(../gfx/icon.png) no-repeat;
   height: 30px;
   width: 30px; }
 
-/* line 14, ../sass/workspaces.sass */
+/* line 9, ../sass/workspaces.sass */
 .wsCollector {
   display: block;
   background-color: #330033;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 80px;
-  width: 100%;
+  position: fixed;
   opacity: 0.8; }
-  /* line 23, ../sass/workspaces.sass */
+  /* line 14, ../sass/workspaces.sass */
   .wsCollector.wsHidden {
     display: none; }
+  /* line 16, ../sass/workspaces.sass */
+  .wsCollector.top {
+    height: 80px;
+    top: -80px;
+    left: 30%;
+    width: 40%;
+    border-radius: 0px 0px 100% 100%; }
+  /* line 22, ../sass/workspaces.sass */
+  .wsCollector.right {
+    border-radius: 100% 0px 0px 100%;
+    right: -80px;
+    top: 30%;
+    height: 40%;
+    width: 80px; }
+  /* line 28, ../sass/workspaces.sass */
+  .wsCollector.left {
+    border-radius: 0px 100% 100% 0px;
+    top: 30%;
+    left: -80px;
+    height: 40%;
+    width: 80px; }
 
-/* line 26, ../sass/workspaces.sass */
+/* line 35, ../sass/workspaces.sass */
 .wsWorkspace {
   display: inline-block;
   background-color: red;
-  height: 1000px;
-  position: absolute;
+  height: 100%;
+  position: fixed;
   opacity: 0.9;
   width: 100%; }
-  /* line 33, ../sass/workspaces.sass */
+  /* line 42, ../sass/workspaces.sass */
   .wsWorkspace.top {
-    top: -5000px;
+    background-color: black;
+    top: -100%;
     left: 0px; }
+  /* line 46, ../sass/workspaces.sass */
+  .wsWorkspace.right {
+    background-color: red;
+    right: -100%;
+    top: 0px; }
+  /* line 50, ../sass/workspaces.sass */
+  .wsWorkspace.left {
+    background-color: pink;
+    left: -100%;
+    top: 0px; }

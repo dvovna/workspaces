@@ -6,9 +6,10 @@
 
     WS.CollectorView = Backbone.View.extend({
         tagName: "div",
-        className: "wsHidden wsCollector",
-
         bodyId: "body",
+        events: {
+            "click": "onClick"
+        },
 
         initialize: function (options) {
             this.options = options || {};
@@ -29,17 +30,38 @@
         },
 
         show: function () {
-            this.$el.removeClass("wsHidden");
+            var coords = {};
+
+            coords[this.options.placement] = "0px";
+
+            this.$el.animate(coords, 300);
         },
 
         hide: function () {
-            this.$el.addClass('wsHidden');
+            var coords = {};
+
+            coords[this.options.placement] = "-" + this.getCoordsForHiding(this.options.placement) + "px";
+
+            this.$el.animate(coords, 300);
+        },
+
+        getCoordsForHiding: function (direction) {
+            return direction === "top" ? this.$el.outerHeight() : this.$el.outerWidth();
         },
 
         onDrop: function () {
             this.trigger("dropped.ws");
 
             this.hide();
+        },
+
+        onClick: function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            this.hide();
+
+            this.trigger("selected");
         },
 
         allowDropping: function (e) {

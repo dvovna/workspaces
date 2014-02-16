@@ -6,14 +6,35 @@
 
     WS.WorkspaceView = Backbone.View.extend({
         tagName: "div",
-        className: "wsWorkspace top",
+        events: {
+            "click": "onClose"
+        },
 
         initialize: function (options) {
-            console.log('test!!');
+            this.options = options || {};
+            console.log('workspace view!!');
+        },
+
+        onClose: function (e) {
+            e.preventDefault();
+
+            this.trigger("close");
         },
 
         show: function () {
-            this.$el.animate({top: "0px"}, 1000);
+            var coords = {};
+
+            coords[this.options.placement] = "0px";
+
+            this.$el.animate(coords, 500);
+        },
+
+        hide: function () {
+            var coords = {};
+
+            coords[this.options.placement] = "-1500px";
+
+            this.$el.animate(coords, 500);
         }
     });
 }(window, WS, $, Backbone, _));
