@@ -26,7 +26,7 @@
 
             coords[this.options.placement] = "0px";
 
-            this.$el.animate(coords, 1000);
+            this.$el.animate(coords, 500);
         },
 
         hide: function () {

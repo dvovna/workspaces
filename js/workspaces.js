@@ -52,7 +52,7 @@ WS.Constants = {
         },
 
         onWSOpened: function (placement) {
-            this.wssController.hideAllCollectors();
+            this.state.set("switching", "false");
 
             this.state.set("active", placement, {silent: true});
 
