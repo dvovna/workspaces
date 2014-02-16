@@ -1,6 +1,3 @@
-a
-    color: white
-
 @import "variables"
 
 .wsSwitcher
@@ -21,12 +18,15 @@ a
         top: $ws_collector_top_top
         left: $ws_collector_left_top
         width: $ws_collector_width_top
+        border-radius: 0px 0px 100% 100%
     &.right
+        border-radius: 100% 0px 0px 100%
         right: $ws_collector_right_right
         top: $ws_collector_top_right
         height: $ws_collector_height_right
         width: $ws_collector_width_right
     &.left
+        border-radius: 0px 100% 100% 0px
         top: $ws_collector_top_left
         left: $ws_collector_left_left
         height: $ws_collector_height_left
