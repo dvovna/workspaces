@@ -8,11 +8,8 @@
         workspaceControllerSpy: {},
 
         mock: function () {
-            Test.mocked.workspaceControllerMock = WS.WorkspaceController;
-            WS.WorkspaceController = Backbone.View.extend();
-
-            Test.mocked.workspaceModelMock = WS.WorkspaceModel;
-            WS.WorkspaceModel = Backbone.Model.extend();
+            Test.mocked.workspacesControllerMock = WS.WorkspacesController;
+            WS.WorkspacesController = Backbone.View.extend();
 
             Test.mocked.switcherControllerMock = WS.SwitcherController;
             WS.SwitcherController = Backbone.View.extend();
@@ -22,15 +19,13 @@
         },
 
         unMock: function () {
-            WS.WorkspaceController = Test.mocked.workspaceControllerMock;
-            WS.WorkspaceModel = Test.mocked.workspaceModelMock;
+            WS.WorkspacesController = Test.mocked.workspacesControllerMock;
             WS.SwitcherController = Test.mocked.switcherControllerMock;
             WS.WorkspacesStateModel = Test.mocked.WorkspacesStateModelMock;
         },
 
         before: function () {
-            Test.workspaceControllerSpy = W.spyOn(WS.WorkspaceController.prototype, "initialize");
-            Test.workSpaceModelSpy = W.spyOn(WS.WorkspaceModel.prototype, "initialize");
+            Test.workspacesControllerSpy = W.spyOn(WS.WorkspacesController.prototype, "initialize");
             Test.switcherControllerSpy = W.spyOn(WS.SwitcherController.prototype, "initialize");
             Test.workspacesStateModelSpy = W.spyOn(WS.WorkspacesStateModel.prototype, "initialize");
 
@@ -40,11 +35,7 @@
         },
 
         initTest: function () {
-            W.expect(Test.workspaceControllerSpy).toHaveBeenCalledWith({
-                model: Test.obj.topWorkspaceModel,
-                placement: "top"
-            });
-            W.expect(Test.workSpaceModelSpy).toHaveBeenCalledWith();
+            W.expect(Test.workspacesControllerSpy).toHaveBeenCalledWith();
             W.expect(Test.switcherControllerSpy).toHaveBeenCalledWith({
                 switcherId: "test"
             });

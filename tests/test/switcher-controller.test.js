@@ -18,13 +18,13 @@
         onSwitcherClickTest: function () {
             $("#switcher").trigger("click");
 
-            W.expect(Test.triggerSpy).toHaveBeenCalledWith("switching", true);
+            W.expect(Test.triggerSpy).toHaveBeenCalledWith("switching", 'true');
         },
 
         onBodyClickTest: function () {
             $("body").trigger("click");
 
-            W.expect(Test.triggerSpy).toHaveBeenCalledWith("switching", false);
+            W.expect(Test.triggerSpy).toHaveBeenCalledWith("switching", 'false');
         }
     });
 }(window));

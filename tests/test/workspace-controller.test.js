@@ -34,7 +34,8 @@
             });
 
             W.expect(Test.collectorViewSpy).toHaveBeenCalledWith({
-                className : 'top wsHidden wsCollector'
+                className : 'top wsCollector',
+                placement: "top"
             });
         }
     });
