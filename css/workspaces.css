@@ -19,7 +19,7 @@ a {
 .wsCollector {
   display: block;
   background-color: #330033;
-  position: absolute;
+  position: fixed;
   opacity: 0.8; }
   /* line 22, ../sass/workspaces.sass */
   .wsCollector.wsHidden {
@@ -48,7 +48,7 @@ a {
   display: inline-block;
   background-color: red;
   height: 1000px;
-  position: absolute;
+  position: fixed;
   opacity: 0.9;
   width: 100%; }
   /* line 47, ../sass/workspaces.sass */

@@ -5,7 +5,8 @@ WS.Constants = {
     TOP: "top",
     LEFT: "left",
     BOTTOM: "bottom",
-    RIGHT: "right"
+    RIGHT: "right",
+    NONE: "none"
 };
 
 /*jslint nomen:true*/
@@ -47,6 +48,14 @@ WS.Constants = {
             this.state.on("change", this.onStateChange, this);
             this.state.on("change:active", this.onStateChangeActive, this);
             this.state.on("change:switching", this.onStateChangeSwitching, this);
+
+            this.leftWorkspaceController.on('showed', this.onWSOpened, this);
+            this.rightWorkspaceController.on('showed', this.onWSOpened, this);
+            this.topWorkspaceController.on('showed', this.onWSOpened, this);
+
+            this.leftWorkspaceController.on('hidden', this.onWSHiddend, this);
+            this.rightWorkspaceController.on('hidden', this.onWSHiddend, this);
+            this.topWorkspaceController.on('hidden', this.onWSHiddend, this);
         },
 
         index: function (args) {
@@ -57,6 +66,18 @@ WS.Constants = {
 
         onWorkspaceSwitching: function (flag) {
             this.state.set("switching", flag);
+        },
+
+        onWSOpened: function (placement) {
+            this.state.set("active", placement, {silent: true});
+
+            this.onStateChange();
+        },
+
+        onWSHiddend: function () {
+            this.state.set("active", WS.Constants.NONE, {silent: true});
+
+            this.onStateChange();
         },
 
         onStateChange: function () {
@@ -77,13 +98,13 @@ WS.Constants = {
         },
 
         showWS: function (active) {
-            active = parseInt(active);
+            var consts = WS.Constants;
 
             this.hideAllWS();
 
-            if (active === 1) { this.leftWorkspaceController.showWS(); }
-            if (active === 2) { this.topWorkspaceController.showWS(); }
-            if (active === 3) { this.rightWorkspaceController.showWS(); }
+            if (active === consts.LEFT) { this.leftWorkspaceController.showWS(); }
+            if (active === consts.TOP) { this.topWorkspaceController.showWS(); }
+            if (active === consts.RIGHT) { this.rightWorkspaceController.showWS(); }
         },
 
         hideAllWS: function () {

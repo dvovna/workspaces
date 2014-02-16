@@ -17,16 +17,23 @@
                 placement: this.options.placement
             });
 
-            this.state = this.options.state || {};
-
             this.collectorView.on("dropped.ws", this.onDropped, this);
+            this.workspaceView.on("close", this.onWSClose, this);
 
             $("body").append(this.collectorView.$el);
             $("body").append(this.workspaceView.$el);
         },
 
         onDropped: function () {
-            this.workspaceView.show();
+            this.trigger('showed', this.options.placement);
+
+            this.showWS();
+        },
+
+        onWSClose: function () {
+            this.trigger("hidden");
+
+            this.hideWS();
         },
 
         showWS: function () {

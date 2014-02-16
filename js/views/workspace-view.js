@@ -7,12 +7,18 @@
     WS.WorkspaceView = Backbone.View.extend({
         tagName: "div",
         events: {
-            "click": "hide"
+            "click": "onClose"
         },
 
         initialize: function (options) {
             this.options = options || {};
             console.log('workspace view!!');
+        },
+
+        onClose: function (e) {
+            e.preventDefault();
+
+            this.trigger("close");
         },
 
         show: function () {

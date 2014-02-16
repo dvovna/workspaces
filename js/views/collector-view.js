@@ -31,15 +31,19 @@
 
             coords[this.options.placement] = "0px";
 
-            this.$el.animate(coords, 1000);
+            this.$el.animate(coords, 300);
         },
 
         hide: function () {
             var coords = {};
 
-            coords[this.options.placement] = "-100px";
+            coords[this.options.placement] = "-" + this.getCoordsForHiding(this.options.placement) + "px";
 
-            this.$el.animate(coords, 1000);
+            this.$el.animate(coords, 300);
+        },
+
+        getCoordsForHiding: function (direction) {
+            return direction === "top" ? this.$el.outerHeight() : this.$el.outerWidth();
         },
 
         onDrop: function () {

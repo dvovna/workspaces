@@ -6,7 +6,7 @@
 
     WS.WorkspacesStateModel = Backbone.Model.extend({
         defaults: {
-            active: '0', //0-nothing opened, 1-left, 2-top, 3-right
+            active: WS.Constants.NONE,
             switching: 'false'
         },
 
