@@ -47,22 +47,22 @@ a {
 .wsWorkspace {
   display: inline-block;
   background-color: red;
-  height: 1000px;
+  height: 100%;
   position: fixed;
   opacity: 0.9;
   width: 100%; }
   /* line 47, ../sass/workspaces.sass */
   .wsWorkspace.top {
     background-color: black;
-    top: -1500px;
+    top: -100%;
     left: 0px; }
   /* line 51, ../sass/workspaces.sass */
   .wsWorkspace.right {
     background-color: red;
-    right: -1500px;
+    right: -100%;
     top: 0px; }
   /* line 55, ../sass/workspaces.sass */
   .wsWorkspace.left {
     background-color: pink;
-    left: -1500px;
+    left: -100%;
     top: 0px; }

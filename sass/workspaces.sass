@@ -40,19 +40,19 @@ a
 .wsWorkspace
     display: inline-block
     background-color: red
-    height: 1000px //height of a screen
+    height: $ws_height
     position: fixed
-    opacity: 0.9
-    width: 100%
+    opacity: $ws_opacity
+    width: $ws_width
     &.top
         background-color: black
-        top: -1500px //should be a height of a screen
+        top: -$ws_height
         left: 0px
     &.right
         background-color: red
-        right: -1500px //should be a width of a screen
+        right: -$ws_width
         top: 0px
     &.left
         background-color: pink
-        left: -1500px //should be a width of a screen
+        left: -$ws_width
         top: 0px
