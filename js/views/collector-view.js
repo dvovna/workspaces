@@ -7,6 +7,9 @@
     WS.CollectorView = Backbone.View.extend({
         tagName: "div",
         bodyId: "body",
+        events: {
+            "click": "onClick"
+        },
 
         initialize: function (options) {
             this.options = options || {};
@@ -50,6 +53,15 @@
             this.trigger("dropped.ws");
 
             this.hide();
+        },
+
+        onClick: function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            this.hide();
+
+            this.trigger("selected");
         },
 
         allowDropping: function (e) {

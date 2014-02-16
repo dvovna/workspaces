@@ -18,10 +18,17 @@
             });
 
             this.collectorView.on("dropped.ws", this.onDropped, this);
+            this.collectorView.on("selected", this.onSelected, this);
             this.workspaceView.on("close", this.onWSClose, this);
 
             $("body").append(this.collectorView.$el);
             $("body").append(this.workspaceView.$el);
+        },
+
+        onSelected: function () {
+            this.trigger('showed', this.options.placement);
+
+            this.showWS();
         },
 
         onDropped: function () {
@@ -47,6 +54,7 @@
         showCollector: function () {
             this.collectorView.show();
         },
+
         hideCollector: function () {
             this.collectorView.hide();
         }
