@@ -8,42 +8,42 @@ body {
 a {
   color: white; }
 
-/* line 9, ../sass/workspaces.sass */
+/* line 11, ../sass/workspaces.sass */
 .wsSwitcher {
   display: block;
   background: url(../gfx/icon.png) no-repeat;
   height: 30px;
   width: 30px; }
 
-/* line 15, ../sass/workspaces.sass */
+/* line 17, ../sass/workspaces.sass */
 .wsCollector {
   display: block;
   background-color: #330033;
   position: absolute;
-  height: 50px;
   opacity: 0.8; }
-  /* line 21, ../sass/workspaces.sass */
+  /* line 22, ../sass/workspaces.sass */
   .wsCollector.wsHidden {
     display: none; }
-  /* line 23, ../sass/workspaces.sass */
+  /* line 24, ../sass/workspaces.sass */
   .wsCollector.top {
-    top: 0px;
+    height: 50px;
+    top: -50px;
     left: 0px;
     width: 100%; }
-  /* line 27, ../sass/workspaces.sass */
+  /* line 29, ../sass/workspaces.sass */
   .wsCollector.right {
-    right: 0px;
+    right: -50px;
     top: 50px;
-    height: 1000px;
+    height: 100%;
     width: 50px; }
-  /* line 32, ../sass/workspaces.sass */
+  /* line 34, ../sass/workspaces.sass */
   .wsCollector.left {
     top: 50px;
-    left: 0px;
+    left: -50px;
     height: 100%;
     width: 50px; }
 
-/* line 38, ../sass/workspaces.sass */
+/* line 40, ../sass/workspaces.sass */
 .wsWorkspace {
   display: inline-block;
   background-color: red;
@@ -51,17 +51,17 @@ a {
   position: absolute;
   opacity: 0.9;
   width: 100%; }
-  /* line 45, ../sass/workspaces.sass */
+  /* line 47, ../sass/workspaces.sass */
   .wsWorkspace.top {
     background-color: black;
     top: -1500px;
     left: 0px; }
-  /* line 49, ../sass/workspaces.sass */
+  /* line 51, ../sass/workspaces.sass */
   .wsWorkspace.right {
     background-color: red;
     right: -1500px;
     top: 0px; }
-  /* line 53, ../sass/workspaces.sass */
+  /* line 55, ../sass/workspaces.sass */
   .wsWorkspace.left {
     background-color: pink;
     left: -1500px;

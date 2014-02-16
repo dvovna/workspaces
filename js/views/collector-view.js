@@ -27,11 +27,19 @@
         },
 
         show: function () {
-            this.$el.removeClass("wsHidden");
+            var coords = {};
+
+            coords[this.options.placement] = "0px";
+
+            this.$el.animate(coords, 1000);
         },
 
         hide: function () {
-            this.$el.addClass('wsHidden');
+            var coords = {};
+
+            coords[this.options.placement] = "-100px";
+
+            this.$el.animate(coords, 1000);
         },
 
         onDrop: function () {

@@ -6,6 +6,8 @@ body
 a
     color: white
 
+@import "variables"
+
 .wsSwitcher
     display: block
     background: url(../gfx/icon.png) no-repeat
@@ -14,26 +16,26 @@ a
 
 .wsCollector
     display: block
-    background-color: #330033
+    background-color: $ws_collector_background
     position: absolute
-    height: 50px
-    opacity: 0.8
+    opacity: $ws_collector_opacity
     &.wsHidden
         display: none
     &.top
-        top: 0px
-        left: 0px
-        width: 100%
+        height: $ws_collector_height_top
+        top: $ws_collector_top_top
+        left: $ws_collector_left_top
+        width: $ws_collector_width_top
     &.right
-        right: 0px
-        top: 50px
-        height: 1000px
-        width: 50px
+        right: $ws_collector_right_right
+        top: $ws_collector_top_right
+        height: $ws_collector_height_right
+        width: $ws_collector_width_right
     &.left
-        top: 50px
-        left: 0px
-        height: 100%
-        width: 50px
+        top: $ws_collector_top_left
+        left: $ws_collector_left_left
+        height: $ws_collector_height_left
+        width: $ws_collector_width_left
 
 .wsWorkspace
     display: inline-block

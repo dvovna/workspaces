@@ -44,33 +44,36 @@ WS.Constants = {
 
             this.switcherController.on("switching", this.onWorkspaceSwitching, this);
 
+            this.state.on("change", this.onStateChange, this);
             this.state.on("change:active", this.onStateChangeActive, this);
             this.state.on("change:switching", this.onStateChangeSwitching, this);
         },
 
         index: function (args) {
             if (!args) { return; }
+
             this.state.set(this.deparam(args));
         },
 
         onWorkspaceSwitching: function (flag) {
-            console.log('tut', flag);
             this.state.set("switching", flag);
+        },
+
+        onStateChange: function () {
+            this.navigate($.param(this.state.attributes));
         },
 
         onStateChangeActive: function () {
             var active = this.state.get("active");
 
             if (active) { this.showWS(active); }
-            this.navigate($.param(this.state.attributes));
         },
 
         onStateChangeSwitching: function () {
             var switching = this.state.get("switching");
-            console.log('here', switching);
 
-            if (!switching) { this.hideAllSwitchers(); }
-            if (switching) { this.showAllCollectors(); }
+            if (switching === "false") { this.hideAllCollectors(); }
+            if (switching === "true") { this.showAllCollectors(); }
         },
 
         showWS: function (active) {
@@ -89,14 +92,13 @@ WS.Constants = {
             this.rightWorkspaceController.hideWS();
         },
 
-        hideAllSwitchers: function () {
+        hideAllCollectors: function () {
             this.leftWorkspaceController.hideCollector();
             this.topWorkspaceController.hideCollector();
             this.rightWorkspaceController.hideCollector();
         },
 
         showAllCollectors: function () {
-            console.log('gggg');
             this.leftWorkspaceController.showCollector();
             this.topWorkspaceController.showCollector();
             this.rightWorkspaceController.showCollector();

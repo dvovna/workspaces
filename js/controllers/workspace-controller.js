@@ -9,7 +9,8 @@
             this.options = options || {};
 
             this.collectorView = new WS.CollectorView({
-                className: this.options.placement + " wsHidden wsCollector"
+                className: this.options.placement + " wsCollector",
+                placement: this.options.placement
             });
             this.workspaceView = new WS.WorkspaceView({
                 className: this.options.placement + " wsWorkspace",

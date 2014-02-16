@@ -20,11 +20,11 @@
             e.preventDefault();
             e.stopPropagation();
 
-            this.trigger("switching", true);
+            this.trigger("switching", "true");
         },
 
         onOffSwitching: function (e) {
-            this.trigger("switching", false);
+            this.trigger("switching", "false");
         }
     });
 }(window, WS, $, Backbone, _));
