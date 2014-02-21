@@ -5,7 +5,7 @@ body {
   height: 100%;
   width: 100%; }
 
-/* line 12, ../sass/img_viewer.sass */
+/* line 12, ../sass/overviewer.sass */
 .overviewWS .imgViewer {
   display: inline-block;
   float: left;
@@ -14,10 +14,10 @@ body {
   position: absolute;
   height: 100%;
   width: 57%; }
-  /* line 20, ../sass/img_viewer.sass */
+  /* line 20, ../sass/overviewer.sass */
   .overviewWS .imgViewer div {
     overflow: hidden; }
-  /* line 22, ../sass/img_viewer.sass */
+  /* line 22, ../sass/overviewer.sass */
   .overviewWS .imgViewer .smallImgsContainer {
     display: inline-block;
     float: left;
@@ -25,7 +25,7 @@ body {
     width: 40%;
     overflow-y: auto;
     max-width: 300px; }
-    /* line 29, ../sass/img_viewer.sass */
+    /* line 29, ../sass/overviewer.sass */
     .overviewWS .imgViewer .smallImgsContainer .imgView {
       display: block;
       cursor: pointer;
@@ -34,23 +34,23 @@ body {
       background-color: whitesmoke;
       text-align: center;
       width: 135px; }
-      /* line 37, ../sass/img_viewer.sass */
+      /* line 37, ../sass/overviewer.sass */
       .overviewWS .imgViewer .smallImgsContainer .imgView.active {
         background-color: #993300; }
-  /* line 39, ../sass/img_viewer.sass */
+  /* line 39, ../sass/overviewer.sass */
   .overviewWS .imgViewer .bigImgContainer {
     display: inline-block;
     text-align: center;
     width: 55%; }
-    /* line 43, ../sass/img_viewer.sass */
+    /* line 43, ../sass/overviewer.sass */
     .overviewWS .imgViewer .bigImgContainer img {
       margin-top: 15px; }
-  /* line 45, ../sass/img_viewer.sass */
+  /* line 45, ../sass/overviewer.sass */
   .overviewWS .imgViewer img {
     display: inline-block;
     background: transparent;
     margin: 5px; }
-/* line 49, ../sass/img_viewer.sass */
+/* line 49, ../sass/overviewer.sass */
 .overviewWS .descriptionContainer {
   overflow: hidden;
   overflow-y: auto;
@@ -59,62 +59,62 @@ body {
   position: absolute;
   height: 100%;
   width: 45%; }
-  /* line 57, ../sass/img_viewer.sass */
+  /* line 57, ../sass/overviewer.sass */
   .overviewWS .descriptionContainer h1 {
     padding-left: 1%;
     padding-bottom: 0px;
     margin-bottom: 0px;
     font-size: 24px; }
-    /* line 62, ../sass/img_viewer.sass */
+    /* line 62, ../sass/overviewer.sass */
     .overviewWS .descriptionContainer h1 a {
       text-decoration: none;
       color: #034b83; }
-    /* line 65, ../sass/img_viewer.sass */
+    /* line 65, ../sass/overviewer.sass */
     .overviewWS .descriptionContainer h1 span.price {
       color: #993300;
       font-size: 34px;
       padding-left: 10px; }
-    /* line 69, ../sass/img_viewer.sass */
+    /* line 69, ../sass/overviewer.sass */
     .overviewWS .descriptionContainer h1 span {
       font-size: 23px;
       color: grey; }
-    /* line 72, ../sass/img_viewer.sass */
+    /* line 72, ../sass/overviewer.sass */
     .overviewWS .descriptionContainer h1 span.date {
       font-size: 16px;
       padding-left: 10px;
       color: grey; }
-  /* line 76, ../sass/img_viewer.sass */
+  /* line 76, ../sass/overviewer.sass */
   .overviewWS .descriptionContainer p {
     font-size: 14px;
     margin-left: 10px;
     padding-right: 20px; }
-  /* line 80, ../sass/img_viewer.sass */
+  /* line 80, ../sass/overviewer.sass */
   .overviewWS .descriptionContainer h2 {
     font-size: 20px;
     margin-bottom: 0px;
     color: grey; }
-    /* line 84, ../sass/img_viewer.sass */
+    /* line 84, ../sass/overviewer.sass */
     .overviewWS .descriptionContainer h2 p {
       font-size: 16px; }
-  /* line 86, ../sass/img_viewer.sass */
+  /* line 86, ../sass/overviewer.sass */
   .overviewWS .descriptionContainer ul {
     list-style: none;
     display: inline-table;
     margin: 0px;
     padding: 10px;
     width: 90%; }
-    /* line 92, ../sass/img_viewer.sass */
+    /* line 92, ../sass/overviewer.sass */
     .overviewWS .descriptionContainer ul li {
       display: table-row;
       margin: 0px;
       height: auto; }
-      /* line 96, ../sass/img_viewer.sass */
+      /* line 96, ../sass/overviewer.sass */
       .overviewWS .descriptionContainer ul li h3, .overviewWS .descriptionContainer ul li h4 {
         display: table-cell;
         overflow: hidden;
         font-size: 13px;
         padding: 0px;
         padding-bottom: 5px; }
-      /* line 102, ../sass/img_viewer.sass */
+      /* line 102, ../sass/overviewer.sass */
       .overviewWS .descriptionContainer ul li h3 {
         color: #666666; }
