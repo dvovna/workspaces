@@ -59,3 +59,11 @@
     background-color: whitesmoke;
     left: -100%;
     top: 0px; }
+    /* line 54, ../sass/workspaces.sass */
+    .wsWorkspace.left button.close {
+      background-color: black;
+      color: red;
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      z-index: 999; }

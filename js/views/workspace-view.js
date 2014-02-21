@@ -6,12 +6,14 @@
 
     WS.WorkspaceView = Backbone.View.extend({
         tagName: "div",
-        events: {
-//            "click": "onClose"
-        },
 
         initialize: function (options) {
             this.options = options || {};
+
+            _.bindAll(this, "onClose");
+
+            this.$el.append($("<button class='close'>Close</button>"));
+            this.$el.find(".close").bind("click", this.onClose);
         },
 
         onClose: function (e) {

@@ -25,14 +25,15 @@ WS.Constants = {
 
             _.bindAll(this, "onOverviewerStateChange");
 
+            this.state = new WS.WorkspacesStateModel();
+
             this.overviewer = new Overviewer({
                 onStateChange: this.onOverviewerStateChange
             });
 
-            this.state = new WS.WorkspacesStateModel();
-
             this.wssController = new WS.WorkspacesController({
-                overviewer: this.overviewer
+                overviewer: this.overviewer,
+                state: this.state
             });
 
             this.switcherController = new WS.SwitcherController({
@@ -44,6 +45,8 @@ WS.Constants = {
             this.state.on("change", this.onStateChange, this);
             this.state.on("change:active", this.onStateChangeActive, this);
             this.state.on("change:switching", this.onStateChangeSwitching, this);
+            this.state.on("change:itemId", this.onStateChangeItemId, this);
+            this.state.on("change:activeImgIndx", this.onStateChangeActiveImgIndx, this);
 
             this.wssController.on('showed', this.onWSOpened, this);
             this.wssController.on('hidden', this.onWSHiddend, this);
@@ -104,7 +107,15 @@ WS.Constants = {
         },
 
         onOverviewerStateChange: function (data) {
-            return true;
+            this.state.set(data);
+        },
+
+        onStateChangeItemId: function () {
+            this.overviewer.setItemId(this.state.get("itemId"));
+        },
+
+        onStateChangeActiveImgIndx: function () {
+            this.overviewer.setActiveImgIndx(this.state.get("activeImgIndx"));
         }
     });
 
