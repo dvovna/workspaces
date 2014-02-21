@@ -31,7 +31,8 @@
             this.showWS();
         },
 
-        onDropped: function () {
+        onDropped: function (args) {
+            this.trigger("dropped", args);
             this.trigger('showed', this.options.placement);
 
             this.showWS();

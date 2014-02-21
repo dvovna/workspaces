@@ -8,10 +8,11 @@
         initialize: function (options) {
             this.options = options || {};
 
-            U.bindAll(this, "onMousedown", "onMouseup", "onMouseMove", "triggerDragging");
+            U.bindAll(this, "onMousedown", "onMouseup", "onMouseMove", "triggerDragging", "onDraggStart");
 
             $('img').on("mousedown.ws", this.onMousedown);
             $('img').on("mouseup.ws", this.onMouseup);
+            $('img').on("dragstart.ws", this.onDraggStart);
         },
 
         onMousedown: function (e) {
@@ -38,6 +39,10 @@
         triggerDragging: function () {
             $(document).off("mousemove.ws");
             this.trigger('dragging');
+        },
+
+        onDraggStart: function (e) {
+            this.targetEl = $(e.target);
         }
     });
 }(window, WS, $, Backbone, _));

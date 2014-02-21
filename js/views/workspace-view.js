@@ -7,12 +7,11 @@
     WS.WorkspaceView = Backbone.View.extend({
         tagName: "div",
         events: {
-            "click": "onClose"
+//            "click": "onClose"
         },
 
         initialize: function (options) {
             this.options = options || {};
-            console.log('workspace view!!');
         },
 
         onClose: function (e) {
@@ -32,7 +31,7 @@
         hide: function () {
             var coords = {};
 
-            coords[this.options.placement] = "-1500px";
+            coords[this.options.placement] = "-2000px";
 
             this.$el.animate(coords, 500);
         }

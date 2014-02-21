@@ -22,6 +22,10 @@
                 placement: WS.Constants.LEFT
             });
 
+            this.leftWorkspaceController.on("dropped", this.onLeftWSDropped, this);
+
+            this.leftWorkspaceController.workspaceView.$el.append(this.options.overviewer.overviewerEl);
+
             this.leftWorkspaceController.on('showed', this.onWSOpened, this);
             this.rightWorkspaceController.on('showed', this.onWSOpened, this);
             this.topWorkspaceController.on('showed', this.onWSOpened, this);
@@ -65,6 +69,10 @@
             if (active === consts.LEFT) { this.leftWorkspaceController.showWS(); }
             if (active === consts.TOP) { this.topWorkspaceController.showWS(); }
             if (active === consts.RIGHT) { this.rightWorkspaceController.showWS(); }
+        },
+
+        onLeftWSDropped: function (data) {
+            this.options.overviewer.setItemId(data.itemId);
         }
     });
 }(WS, $, Backbone));
