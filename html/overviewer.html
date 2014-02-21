@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Image Viewer by d.vovna</title>
+    <meta charset="UTF-8"/>
+
+    <script type="text/javascript" src="../lib/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../lib/underscore-1.5.2.js"></script>
+    <script type="text/javascript" src="../lib/backbone-1.1.js"></script>
+
+    <script type="text/javascript" src="mockjax-lib.js"></script>
+    <script type="text/javascript" src="mocks.js"></script>
+
+    <script type="text/javascript" src="../js/overviewer/overviewer.js"></script>
+    <script type="text/javascript" src="../js/overviewer/overviewer-model.js"></script>
+    <script type="text/javascript" src="../js/overviewer/images-view.js"></script>
+    <script type="text/javascript" src="../js/overviewer/description-view.js"></script>
+    <script type="text/javascript" src="../js/overviewer/active-img-view.js"></script>
+
+    <link rel="stylesheet" href="../css/img_viewer.css"/>
+</head>
+<body>
+<div class="overviewWS">
+
+<script type="javascript/template" id="imgGallery">
+    <div class="smallImgsContainer">
+        <% _.each(getImgsLinks(), function (link, ind) { %>
+            <div class="imgView <% if (ind === model.get('activeImgIndx')) { %>active<% } %>" >
+                <img id="<%= ind %>" src="<%= link %>" alt="" />
+            </div>
+        <% }); %>
+    </div>
+
+    <div class="bigImgContainer"></div>
+</script>
+
+<script type="javascript/template" id="description">
+    <h1>
+        <a href="<%= get('itemLink') %>"><%= get("itemTitle") %></a>
+        <span class="price"><%= get('minPrice') %></span> -
+        <span><%= get('maxPrice') %></span>
+        <span class="date"><%= get('doDate') %></span>
+    </h1>
+
+    <p>
+        <%= get('summary') %>
+    </p>
+
+    <h2>Технические характеристики</h2>
+
+    <ul>
+        <% _.each(get('detailsData'), function (detail) { %>
+            <li>
+                <h3><%= detail.name %></h3>
+                <h4><%= detail.value %></h4>
+            </li>
+        <% }); %>
+    </ul>
+</script>
+
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.imgViewer = new window.Overviewer({
+            itemId: 1
+        });
+
+        Backbone.history.start();
+    });
+</script>
+
+</body>
+</html>
