@@ -25,11 +25,11 @@ WS.Constants = {
 
             _.bindAll(this, "onOverviewerStateChange");
 
+            this.state = new WS.WorkspacesStateModel();
+
             this.overviewer = new Overviewer({
                 onStateChange: this.onOverviewerStateChange
             });
-
-            this.state = new WS.WorkspacesStateModel();
 
             this.wssController = new WS.WorkspacesController({
                 overviewer: this.overviewer
@@ -78,6 +78,7 @@ WS.Constants = {
         },
 
         onStateChangeActive: function () {
+            console.log('hello');
             var active = this.state.get("active");
 
             if (active) { this.wssController.showWS(active); }

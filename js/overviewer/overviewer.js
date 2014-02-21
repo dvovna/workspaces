@@ -4,10 +4,10 @@ window.OVW = {};
     'use strict';
 
     window.Overviewer = Backbone.Router.extend({
-        routes: {
-            "active/:id/:index": "active",
-            "*index": "index"
-        },
+//        routes: {
+//            "active/:id/:index": "active",
+//            "*index": "index"
+//        },
 
         initialize: function (options) {
             this.options = options || {};
