@@ -8,6 +8,8 @@
         initialize: function (options) {
             this.options = options || {};
 
+            this.state = this.options.state;
+
             this.topWorkspaceModel = new WS.WorkspaceModel();
             this.topWorkspaceController = new WS.WorkspaceController({
                 model: this.topWorkspaceModel,
@@ -72,7 +74,7 @@
         },
 
         onLeftWSDropped: function (data) {
-            this.options.overviewer.setItemId(data.itemId);
+            this.state.set(data);
         }
     });
 }(WS, $, Backbone));
