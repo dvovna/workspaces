@@ -23,9 +23,17 @@ WS.Constants = {
         initialize: function (options) {
             this.options = options || {};
 
+            _.bindAll(this, "onOverviewerStateChange");
+
+            this.overviewer = new Overviewer({
+                onStateChange: this.onOverviewerStateChange
+            });
+
             this.state = new WS.WorkspacesStateModel();
 
-            this.wssController = new WS.WorkspacesController();
+            this.wssController = new WS.WorkspacesController({
+                overviewer: this.overviewer
+            });
 
             this.switcherController = new WS.SwitcherController({
                 switcherId: this.options.switcherId
@@ -93,6 +101,10 @@ WS.Constants = {
             }
 
             return params;
+        },
+
+        onOverviewerStateChange: function (data) {
+            return true;
         }
     });
 

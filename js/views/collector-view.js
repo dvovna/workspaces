@@ -50,7 +50,7 @@
         },
 
         onDrop: function () {
-            this.trigger("dropped.ws");
+            this.trigger("dropped.ws", this.draggingController.targetEl.data());
 
             this.hide();
         },

@@ -25,8 +25,9 @@ window.OVW = {};
                 model: this.overvierModel
             });
 
-            $(".overviewWS").append(this.imageView.$el);
-            $(".overviewWS").append(this.descriptionView.$el);
+            this.overviewerEl = $("<div class='overviewWS'></div>");
+            this.overviewerEl.append(this.imageView.$el);
+            this.overviewerEl.append(this.descriptionView.$el);
 
             this.imageView.on("imgSwitch", this.onActiveSwitch, this);
             this.overvierModel.on("change:itemId", this.updateUrl, this);
@@ -55,13 +56,23 @@ window.OVW = {};
         },
 
         updateUrl: function () {
-            this.navigate("active/" + this.overvierModel.get("itemId") + "/" + this.overvierModel.get("activeImgIndx"));
+            var url = "active/" + this.overvierModel.get("itemId") + "/" + this.overvierModel.get("activeImgIndx");
+            if (typeof this.options.onStateChange === "function") {
+                this.options.onStateChange.call(this, url);
+                return;
+            }
+            this.navigate(url);
         },
 
         onActiveSwitch: function (indx) {
             this.overvierModel.set("activeImgIndx", parseInt(indx));
 
             this.updateUrl();
+        },
+
+        setItemId: function (itemId) {
+            console.log('here');
+            this.overvierModel.set("itemId", itemId);
         }
     });
 }());

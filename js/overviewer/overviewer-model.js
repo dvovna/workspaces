@@ -17,8 +17,12 @@
          * see mocks.js
          */
         fetch: function () {
+            var itemId = this.get("itemId") || "";
+
+            if (!itemId) { return; }
+
             $.ajax({
-                url: this.url(),
+                url: this.url(itemId),
                 type: "GET",
                 dataType: 'json',
                 success: this.onSuccess,
@@ -28,11 +32,7 @@
             });
         },
 
-        url: function () {
-            var itemId = this.get("itemId") || "";
-
-            if (!itemId) { return; }
-
+        url: function (itemId) {
             return this.get("path") + "?itemId=" + itemId;
         },
 
