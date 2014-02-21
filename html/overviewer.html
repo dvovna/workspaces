@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Workspaces</title>
+    <title>Simple Image Viewer by d.vovna</title>
+    <meta charset="UTF-8"/>
 
-    <link rel="stylesheet" type="text/css" href="../css/workspaces.css">
-
-    <meta charset="utf-8"/>
-
-    <script src="../lib/jquery-1.9.1.js"></script>
-    <script src="../lib/underscore-1.5.2.js"></script>
-    <script src="../lib/backbone-1.1.js"></script>
+    <script type="text/javascript" src="../lib/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../lib/underscore-1.5.2.js"></script>
+    <script type="text/javascript" src="../lib/backbone-1.1.js"></script>
 
     <script type="text/javascript" src="mockjax-lib.js"></script>
     <script type="text/javascript" src="mocks.js"></script>
@@ -22,25 +18,16 @@
     <script type="text/javascript" src="../js/overviewer/active-img-view.js"></script>
 
     <link rel="stylesheet" href="../css/overviewer.css"/>
-
-    <script src="../js/workspaces.js"></script>
-    <script src="../js/controllers/workspace-controller.js"></script>
-    <script src="../js/controllers/dragging-controller.js"></script>
-    <script src="../js/views/collector-view.js"></script>
-    <script src="../js/views/workspace-view.js"></script>
-    <script src="../js/models/workspace-model.js"></script>
-    <script src="../js/controllers/switcher-controller.js"></script>
-    <script src="../js/models/workspaces-state-model.js"></script>
-    <script src="../js/controllers/workspaces-controller.js"></script>
 </head>
-
 <body>
+<div class="overviewWS">
+
 <script type="javascript/template" id="imgGallery">
     <div class="smallImgsContainer">
         <% _.each(getImgsLinks(), function (link, ind) { %>
-        <div class="imgView <% if (ind === model.get('activeImgIndx')) { %>active<% } %>" >
-            <img id="<%= ind %>" src="<%= link %>" alt="" />
-        </div>
+            <div class="imgView <% if (ind === model.get('activeImgIndx')) { %>active<% } %>" >
+                <img id="<%= ind %>" src="<%= link %>" alt="" />
+            </div>
         <% }); %>
     </div>
 
@@ -63,32 +50,26 @@
 
     <ul>
         <% _.each(get('detailsData'), function (detail) { %>
-        <li>
-            <h3><%= detail.name %></h3>
-            <h4><%= detail.value %></h4>
-        </li>
+            <li>
+                <h3><%= detail.name %></h3>
+                <h4><%= detail.value %></h4>
+            </li>
         <% }); %>
     </ul>
 </script>
 
 
-
-<h1>Hello!</h1>
-
-<img src="../gfx/iphone.jpg" data-item-id="1" />
-
-<hr/>
-
-<a href="#" class="wsSwitcher"></a>
+</div>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        window.Workspaces = new Workspaces();
+    $(document).ready(function () {
+        window.imgViewer = new window.Overviewer({
+            itemId: 1
+        });
 
         Backbone.history.start();
     });
 </script>
 
 </body>
-
 </html>
