@@ -7,22 +7,13 @@ $.mockjax({
         this.responseText = {
             imgLinks: {
                 smallImgs: [
-                    "../gfx/iphone.jpg", "../gfx/iphone.jpg", "../gfx/iphone.jpg",
-                    "../gfx/iphone.jpg", "../gfx/iphone.jpg", "../gfx/iphone.jpg",
-                    "../gfx/iphone.jpg", "../gfx/iphone.jpg", "../gfx/iphone.jpg",
-                    "../gfx/iphone.jpg", "../gfx/iphone.jpg", "../gfx/iphone.jpg",
-                    "../gfx/iphone.jpg", "../gfx/iphone.jpg", "../gfx/iphone.jpg",
-                    "../gfx/iphone.jpg", "../gfx/iphone.jpg", "../gfx/iphone.jpg",
-                    "../gfx/iphone.jpg", "../gfx/iphone.jpg", "../gfx/iphone.jpg"
+                    "../gfx/small/1.jpg", "../gfx/small/2.jpg", "../gfx/small/3.jpg",
+                    "../gfx/small/4.jpg", "../gfx/small/5.jpg", "../gfx/small/6.jpg",
+                    "../gfx/small/7.jpg"
                 ],
                 bigImgs: [
-                    "../gfx/nokia.jpg", "../gfx/nokia1.jpg", "../gfx/nokia2.jpg", "../gfx/nokia.jpg",
-                    "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg",
-                    "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg",
-                    "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg",
-                    "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg",
-                    "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg",
-                    "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg", "../gfx/nokia.jpg"
+                    "../gfx/big/1.jpg", "../gfx/big/2.jpg", "../gfx/big/3.jpg", "../gfx/big/4.jpg",
+                    "../gfx/big/5.jpg", "../gfx/big/6.jpg", "../gfx/big/7.jpg"
                 ]
             },
             itemData: {
