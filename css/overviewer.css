@@ -13,7 +13,7 @@ body {
   margin: 0px;
   position: absolute;
   height: 100%;
-  width: 57%; }
+  width: 65%; }
   /* line 20, ../sass/overviewer.sass */
   .overviewWS .imgViewer div {
     overflow: hidden; }
@@ -22,7 +22,7 @@ body {
     display: inline-block;
     float: left;
     height: 100%;
-    width: 40%;
+    width: 18%;
     overflow-y: auto;
     max-width: 300px; }
     /* line 29, ../sass/overviewer.sass */
@@ -41,7 +41,7 @@ body {
   .overviewWS .imgViewer .bigImgContainer {
     display: inline-block;
     text-align: center;
-    width: 55%; }
+    width: 82%; }
     /* line 43, ../sass/overviewer.sass */
     .overviewWS .imgViewer .bigImgContainer img {
       margin-top: 15px; }
@@ -58,7 +58,7 @@ body {
   right: 0px;
   position: absolute;
   height: 100%;
-  width: 45%; }
+  width: 33%; }
   /* line 57, ../sass/overviewer.sass */
   .overviewWS .descriptionContainer h1 {
     padding-left: 1%;
