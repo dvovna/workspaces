@@ -23,9 +23,17 @@
         },
 
         onDropppedEventTest: function () {
+            var testObj = {test: "test"};
+
+            Test.obj.draggingController.targetEl = {
+                data: function () {
+                    return testObj;
+                }
+            };
+
             Test.obj.$el.trigger("drop.ws");
 
-            W.expect(Test.triggerSpy).toHaveBeenCalledWith("dropped.ws");
+            W.expect(Test.triggerSpy).toHaveBeenCalledWith("dropped.ws", testObj);
         }
     });
 }(window));
