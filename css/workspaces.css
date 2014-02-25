@@ -131,32 +131,36 @@ body {
     padding: 0px; }
     /* line 15, ../sass/_evaluator.sass */
     .evaluator ul li {
+      display: block;
       padding: 0px; }
-  /* line 17, ../sass/_evaluator.sass */
-  .evaluator li.fields ul {
-    display: block;
-    background-color: grey;
-    overflow: hidden;
-    color: white;
-    height: 100%;
-    width: 100%; }
-    /* line 24, ../sass/_evaluator.sass */
-    .evaluator li.fields ul.fieldsList {
-      float: left;
-      width: 20%; }
-    /* line 27, ../sass/_evaluator.sass */
-    .evaluator li.fields ul.item {
-      display: inline;
-      float: right;
-      width: 26.666%; }
-    /* line 31, ../sass/_evaluator.sass */
-    .evaluator li.fields ul li {
-      padding-left: 10px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid white; }
-    /* line 35, ../sass/_evaluator.sass */
-    .evaluator li.fields ul li:first-child {
-      height: 120px; }
+  /* line 18, ../sass/_evaluator.sass */
+  .evaluator li.fields {
+    display: block; }
+    /* line 20, ../sass/_evaluator.sass */
+    .evaluator li.fields ul {
+      display: block;
+      background-color: grey;
+      overflow: hidden;
+      color: white;
+      height: 100%;
+      width: 100%; }
+      /* line 27, ../sass/_evaluator.sass */
+      .evaluator li.fields ul.fieldsList {
+        float: left;
+        width: 20%; }
+      /* line 30, ../sass/_evaluator.sass */
+      .evaluator li.fields ul.item {
+        display: inline;
+        min-width: 250px;
+        width: auto; }
+      /* line 34, ../sass/_evaluator.sass */
+      .evaluator li.fields ul li {
+        padding-left: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid white; }
+      /* line 38, ../sass/_evaluator.sass */
+      .evaluator li.fields ul li:first-child {
+        height: 120px; }
 
 /* line 5, ../sass/workspaces.sass */
 .wsSwitcher {

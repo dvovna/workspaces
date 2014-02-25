@@ -13,24 +13,27 @@ body
         list-style: none
         padding: 0px
         li
+            display: block
             padding: 0px
-    li.fields ul
+    li.fields
         display: block
-        background-color: grey
-        overflow: hidden
-        color: white
-        height: 100%
-        width: 100%
-        &.fieldsList
-            float: left
-            width: 20%
-        &.item
-            display: inline
-            float: right
-            width: 26.666%
-        li
-            padding-left: 10px
-            margin-bottom: 10px
-            border-bottom: 1px solid white
-        li:first-child
-            height: 120px
+        ul
+            display: block
+            background-color: grey
+            overflow: hidden
+            color: white
+            height: 100%
+            width: 100%
+            &.fieldsList
+                float: left
+                width: 20%
+            &.item
+                display: inline
+                min-width: 250px
+                width: auto
+            li
+                padding-left: 10px
+                margin-bottom: 10px
+                border-bottom: 1px solid white
+            li:first-child
+                height: 120px
