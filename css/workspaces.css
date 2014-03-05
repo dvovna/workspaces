@@ -172,23 +172,38 @@
           opacity: 0.8; }
       /* line 53, ../sass/_evaluator.sass */
       .evaluator li.item ul .disabledFieldsList {
-        text-align: left;
-        color: grey; }
+        float: left;
+        text-align: left; }
         /* line 56, ../sass/_evaluator.sass */
         .evaluator li.item ul .disabledFieldsList span {
           display: block;
-          width: auto; }
-      /* line 59, ../sass/_evaluator.sass */
+          width: 250px; }
+        /* line 59, ../sass/_evaluator.sass */
+        .evaluator li.item ul .disabledFieldsList ul {
+          display: block;
+          color: grey;
+          float: left;
+          margin: 0;
+          padding: 0;
+          width: 100%; }
+          /* line 66, ../sass/_evaluator.sass */
+          .evaluator li.item ul .disabledFieldsList ul li {
+            display: block;
+            text-align: left;
+            float: left;
+            color: grey;
+            width: 100%; }
+      /* line 72, ../sass/_evaluator.sass */
       .evaluator li.item ul li.fieldName {
         text-align: left; }
-        /* line 61, ../sass/_evaluator.sass */
+        /* line 74, ../sass/_evaluator.sass */
         .evaluator li.item ul li.fieldName:hover {
           color: red;
           cursor: pointer; }
-          /* line 64, ../sass/_evaluator.sass */
+          /* line 77, ../sass/_evaluator.sass */
           .evaluator li.item ul li.fieldName:hover span {
             text-decoration: line-through; }
-        /* line 66, ../sass/_evaluator.sass */
+        /* line 79, ../sass/_evaluator.sass */
         .evaluator li.item ul li.fieldName span {
           width: 250px; }
 
