@@ -1,3 +1,5 @@
+$better_color: mediumslateblue
+
 .evaluator
     display: inline-block
     list-style: none
@@ -15,11 +17,14 @@
             list-style: none
             li
                 display: inline
-                text-align: left
+                text-align: center
+                &.better
+                    background-color: $better_color
                 span
                     display: inline-block
                     margin-bottom: 5px
                     width: 200px
             li:first-child
+                text-align: left
                 span
                     width: 250px

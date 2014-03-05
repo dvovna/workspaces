@@ -112,7 +112,7 @@
       .overviewWS .descriptionContainer ul li h3 {
         color: #666666; }
 
-/* line 1, ../sass/_evaluator.sass */
+/* line 3, ../sass/_evaluator.sass */
 .evaluator {
   display: inline-block;
   list-style: none;
@@ -120,29 +120,35 @@
   text-align: center;
   white-space: nowrap;
   width: auto; }
-  /* line 8, ../sass/_evaluator.sass */
+  /* line 10, ../sass/_evaluator.sass */
   .evaluator li:first-child > ul {
     margin-bottom: 10px; }
-  /* line 10, ../sass/_evaluator.sass */
+  /* line 12, ../sass/_evaluator.sass */
   .evaluator li.item {
     display: inline;
     padding: 0px;
     width: auto; }
-    /* line 14, ../sass/_evaluator.sass */
+    /* line 16, ../sass/_evaluator.sass */
     .evaluator li.item ul {
       list-style: none; }
-      /* line 16, ../sass/_evaluator.sass */
+      /* line 18, ../sass/_evaluator.sass */
       .evaluator li.item ul li {
         display: inline;
-        text-align: left; }
-        /* line 19, ../sass/_evaluator.sass */
+        text-align: center; }
+        /* line 21, ../sass/_evaluator.sass */
+        .evaluator li.item ul li.better {
+          background-color: mediumslateblue; }
+        /* line 23, ../sass/_evaluator.sass */
         .evaluator li.item ul li span {
           display: inline-block;
           margin-bottom: 5px;
           width: 200px; }
-      /* line 24, ../sass/_evaluator.sass */
-      .evaluator li.item ul li:first-child span {
-        width: 250px; }
+      /* line 27, ../sass/_evaluator.sass */
+      .evaluator li.item ul li:first-child {
+        text-align: left; }
+        /* line 29, ../sass/_evaluator.sass */
+        .evaluator li.item ul li:first-child span {
+          width: 250px; }
 
 /* line 5, ../sass/workspaces.sass */
 .wsSwitcher {
