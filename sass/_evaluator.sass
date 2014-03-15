@@ -7,6 +7,8 @@ $white_smoke_color: whitesmoke
     margin: auto
     text-align: center
     white-space: nowrap
+    padding: 0px
+    padding-top: 10px
     width: auto
     li:first-child > ul
         margin-bottom: 10px
@@ -50,6 +52,9 @@ $white_smoke_color: whitesmoke
                     position: absolute
                     right: 5px
                     opacity: 0.8
+                    &:active
+                        background-color: white
+                        color: black
             .disabledFieldsList
                 float: left
                 text-align: left
@@ -60,17 +65,26 @@ $white_smoke_color: whitesmoke
                     display: block
                     color: $secondary_text_color
                     float: left
+                    overflow-x: hidden
+                    overflow-y: auto
                     margin: 0
+                    max-height: 90px
                     padding: 0
-                    width: 100%
+                    width: 80%
                     li
                         display: block
                         text-align: left
                         float: left
+                        font-size: 13px
                         color: $secondary_text_color
                         width: 100%
+                        &:hover
+                            cursor: pointer
+                            color: $better_color
+                            font-size: 15px
             li.fieldName
                 text-align: left
+                background-color: white
                 &:hover
                     color: red
                     cursor: pointer
