@@ -15,4 +15,4 @@
              */
         }
     });
-}(s2wwindow, Backbone));
+}(window, Backbone));
