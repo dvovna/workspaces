@@ -6,7 +6,8 @@
 
     WS.SwitcherControllerTests = WS.Test.extend({
         before: function () {
-            W.loadFixtures("fixture.html");
+//            W.loadFixtures("fixtures/fixture.html");
+            $('body').append('<a id="switcher"></a>');
 
             Test.triggerSpy = W.spyOn(WS.SwitcherController.prototype, "trigger");
 

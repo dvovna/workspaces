@@ -8,7 +8,7 @@
         testImgEl: "#testImg",
 
         before: function () {
-            W.loadFixtures('fixture.html');
+//            W.loadFixtures('fixture.html');
 
             Test.triggerSpy = W.spyOn(WS.DraggingController.prototype, "trigger");
 
@@ -17,7 +17,7 @@
 
         mousedownHandlerTest: function () {
             W.runs(function () {
-                $(Test.testImgEl).trigger('mousedown');
+                Test.obj.onMousedown({target: ""});
             });
 
             W.waitsFor(function () {
@@ -31,7 +31,8 @@
 
         mouseMoveHandlerTest: function () {
             $(Test.testImgEl).trigger('mousedown');
-            $(document).trigger('mousemove');
+            Test.obj.timerId = 100500;
+            Test.obj.onMouseMove();
 
             W.expect(Test.triggerSpy).toHaveBeenCalledWith("dragging");
         }

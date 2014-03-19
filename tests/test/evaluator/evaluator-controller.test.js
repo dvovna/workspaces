@@ -4,17 +4,18 @@
 (function (W) {
     "use strict";
 
-    WS.CollectorViewTest = WS.Test.extend({
+    WS.EvaluatorControllerTest = WS.Test.extend({
         before: function () {
-            WS.DraggingController = WS.DraggingController || Backbone.View.extend();
-            Test.draggingControllerInitSpy = W.spyOn(WS.DraggingController.prototype, "initialize");
+            W.Eval = W.Eval || {};
+            W.Eval.EvalCollection = W.Eval.EvalCollection || Backbone.Collection.extend();
+            Test.EvalCollectionInitSpy = W.spyOn(W.Eval.EvalCollection.prototype, "initialize");
             Test.triggerSpy = W.spyOn(WS.CollectorView.prototype, "trigger");
 
-            Test.obj = new WS.CollectorView();
+            Test.obj = new W.Evaluator();
         },
 
-        initCollectorTest: function () {
-            W.expect(Test.draggingControllerInitSpy).toHaveBeenCalled();
+        initCollectionTest: function () {
+            W.expect(Test.EvalCollectionInitSpy).toHaveBeenCalled();
         },
 
         onDraggingEventTest: function () {
