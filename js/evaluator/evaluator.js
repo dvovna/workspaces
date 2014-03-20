@@ -5,13 +5,28 @@
         initialize: function (options) {
             this.options = options || {};
 
-            this.itemsCollection = new W.Eval.EvalCollection();
+            this.itemsCollection = new W.Eval.ItemsCollection({
+                endpoint: this.options.endpoint
+            });
+
+            this.listView = new W.Eval.ListView({
+                collection: this.itemsCollection
+            });
+
+            this.itemsCollection.on("change", this.onCollectionChange, this);
+
+            this.set(13);
+
+            $(".evaluator").html(this.listView.$el);
         },
 
-        set: function () {
-            this.itemsCollection.setId(1);
-            this.itemsCollection.fetch();
-            //should set to the itemsCollection new id and trigger fetch on it
+        onCollectionChange: function () {
+            console.log("render");
+            this.listView.render();
+        },
+
+        set: function (id) {
+            this.itemsCollection.setId(id);
         }
     });
 }(window, Backbone));

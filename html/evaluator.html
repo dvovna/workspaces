@@ -456,14 +456,66 @@
     </li>
 </ul>
 
+<script type="text/template" id="list-view-tpl">
+    <% _.each(models , function (model) { %>
+            <% _.each(model.get('fields'), function (field) { %>
+                <%= field.fieldName %>
+            <% }); %>
+    <% }); %>
+</script>
+
+<script src="../lib/jquery-1.9.1.js"></script>
 <script src="../lib/underscore-1.5.2.js"></script>
 <script src="../lib/backbone-1.1.js"></script>
-<script src="../lib/jquery-1.9.1.js"></script>
+
+<script src="mockjax-lib.js"></script>
+
 <script src="../js/evaluator/evaluator.js"></script>
+<script src="../js/evaluator/eval-item-model.js"></script>
+<script src="../js/evaluator/eval-collection.js"></script>
+<script src="../js/evaluator/eval-list-view.js"></script>
 
 <script type="text/javascript">
+
+    $.mockjax({
+        url: '/test/*',
+        responseTime: 100,
+        response: function () {
+            this.responseText = JSON.stringify({
+                fields: [
+                    {
+                        fieldName: "",
+                        type: "picture",
+                        value: "http://localhost:63342/workspaces/gfx/small/1.jpg",
+                        otherData: ""
+                    },
+                    {
+                        fieldName: "Цена",
+                        type: "price",
+                        value: 100,
+                        otherData: "$"
+                    },
+                    {
+                        fieldName: "Характеристики процессора",
+                        type: "processor",
+                        value: 1000,
+                        otherData: "МГц"
+                    },
+                    {
+                        fieldName: "Число ядер",
+                        type: "yadra:)",
+                        value: 1000,
+                        otherData: "МГц"
+                    }
+                ]
+            });
+        }
+    });
+
     $(document).ready(function () {
-        window.evaluator = new W.Evaluator();
+        window.evaluator = new window.Evaluator({
+            endpoint: "/test/"
+        });
     });
 </script>
 

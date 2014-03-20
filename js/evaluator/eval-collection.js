@@ -2,30 +2,24 @@
     'use strict';
 
     W.Eval = W.Eval || {};
-    W.Eval.EvalCollection = Backbone.Collection.extend({
-        itemIds: [],
+    W.Eval.ItemsCollection = Backbone.Collection.extend({
+        model: W.Eval.EvalItemModel,
 
         initialize: function (options) {
             this.options = options || {};
 
-        },
-
-        fetch: function () {
-            $.ajax({
-                url: this.url(),
-                success: function (data) {
-                    console.log(data);
-                }
-            });
-        },
-
-        url: function () {
-            //what it should build? number of ids, or each urls for each id
-            return this.options.path + "1";
+            this.on("change", this.onModelChange, this);
         },
 
         setId: function (id) {
-            this.itemIds.push(W.parseInt(id));
+            this.push(new this.model({
+                id: parseInt(id, 10),
+                endpoint: this.options.endpoint
+            }));
+        },
+
+        onModelChange: function () {
+            console.log('dooo');
         }
     });
 }(window, Backbone));
