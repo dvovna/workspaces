@@ -2,11 +2,13 @@
     'use strict';
 
     W.Eval = W.Eval || {};
-    W.Eval.ItemsCollection = Backbone.Collection.extend({
+    W.Eval.ListCollection = Backbone.Collection.extend({
         model: W.Eval.EvalItemModel,
 
         initialize: function (options) {
             this.options = options || {};
+
+            this.itemsCollection = new W.Eval.ItemsCollection();
 
             this.on("change", this.onChange, this);
         },

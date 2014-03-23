@@ -5,15 +5,15 @@
         initialize: function (options) {
             this.options = options || {};
 
-            this.itemsCollection = new W.Eval.ItemsCollection({
+            this.ListCollection = new W.Eval.ListCollection({
                 endpoint: this.options.endpoint
             });
 
             this.listView = new W.Eval.ListView({
-                collection: this.itemsCollection
+                collection: this.ListCollection
             });
 
-            this.itemsCollection.on("change", this.onCollectionChange, this);
+            this.ListCollection.on("change", this.onCollectionChange, this);
 
             $(".evaluator").html(this.listView.$el);
 
@@ -21,13 +21,13 @@
         },
 
         onCollectionChange: function () {
-            this.itemsCollection.reset();
+            this.ListCollection.reset();
             console.log("render");
             this.listView.render();
         },
 
         set: function (id) {
-            this.itemsCollection.setId(id);
+            this.ListCollection.setId(id);
         }
     });
 }(window, Backbone));
