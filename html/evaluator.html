@@ -457,11 +457,23 @@
 </ul>
 
 <script type="text/template" id="list-view-tpl">
-    <% _.each(models , function (model) { %>
-            <% _.each(model.get('fields'), function (field) { %>
-                <%= field.fieldName %>
+    <li class="item">
+        <ul>
+            <li class="disabledFieldsList"></li>
+
+            <% _.each(models , function (model) { %>
+                <% _.each(model.get('fields'), function (field) { %>
+                    <li>
+                        <button>X</button>
+                        <h5 class="starsNumber">5</h5>
+                        <span>
+                            <img src="<%= field.value %>" alt=""/>
+                        </span>
+                    </li>
+                <% }); %>
             <% }); %>
-    <% }); %>
+        </ul>
+    </li>
 </script>
 
 <script src="../lib/jquery-1.9.1.js"></script>
@@ -472,6 +484,7 @@
 
 <script src="../js/evaluator/evaluator.js"></script>
 <script src="../js/evaluator/eval-item-model.js"></script>
+<script src="../js/evaluator/eval-processor.js"></script>
 <script src="../js/evaluator/eval-collection.js"></script>
 <script src="../js/evaluator/eval-list-view.js"></script>
 
@@ -479,10 +492,9 @@
 
     $.mockjax({
         url: '/test/*',
-        responseTime: 100,
+        responseTime: 1000,
         response: function () {
-            this.responseText = JSON.stringify({
-                fields: [
+            this.responseText = JSON.stringify([
                     {
                         fieldName: "",
                         type: "picture",
@@ -507,8 +519,7 @@
                         value: 1000,
                         otherData: "МГц"
                     }
-                ]
-            });
+                ]);
         }
     });
 

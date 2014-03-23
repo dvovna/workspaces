@@ -15,12 +15,13 @@
 
             this.itemsCollection.on("change", this.onCollectionChange, this);
 
-            this.set(13);
-
             $(".evaluator").html(this.listView.$el);
+
+            this.set(13);
         },
 
         onCollectionChange: function () {
+            this.itemsCollection.reset();
             console.log("render");
             this.listView.render();
         },

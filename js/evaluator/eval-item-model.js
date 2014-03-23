@@ -22,8 +22,7 @@
         },
 
         onSuccess: function (data) {
-            console.log("data", data.fields);
-            this.set(data);
+            this.set('fields', data);
         }
     });
 }(window, Backbone));

@@ -8,18 +8,20 @@
         initialize: function (options) {
             this.options = options || {};
 
-            this.on("change", this.onModelChange, this);
+            this.on("change", this.onChange, this);
+        },
+
+        onChange: function () {
+            //should reset itself and populate with new models array
         },
 
         setId: function (id) {
-            this.push(new this.model({
+            var model = new this.model({
                 id: parseInt(id, 10),
                 endpoint: this.options.endpoint
-            }));
-        },
+            });
 
-        onModelChange: function () {
-            console.log('dooo');
+            this.push(model);
         }
     });
 }(window, Backbone));
