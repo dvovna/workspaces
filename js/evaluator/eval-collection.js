@@ -8,13 +8,23 @@
         initialize: function (options) {
             this.options = options || {};
 
+            _.bindAll(this, "createFieldsCollection");
+
             this.itemsCollection = new W.Eval.ItemsCollection();
 
             this.on("change", this.onChange, this);
         },
 
         onChange: function () {
-            //should reset itself and populate with new models array
+            _.map(this.models, this.createFieldsCollection);
+        },
+
+        createFieldsCollection: function (model) {
+            if (!model.attributes.hasOwnProperty("fields")) { return; }
+
+
+            console.log('foo', model.attributes);
+
         },
 
         setId: function (id) {
