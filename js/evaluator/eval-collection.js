@@ -8,7 +8,7 @@
         initialize: function (options) {
             this.options = options || {};
 
-            this.itemsCollection = new W.Eval.ItemsCollection();
+            this.itemsModel = new W.Eval.ItemsModel();
 
             this.on("change", this.onChange, this);
         },
@@ -16,16 +16,37 @@
         onChange: function () {
             var self = this;
 
-            this.itemsCollection.reset();
-
             _.each(this.models, function (model) {
-                self.itemsCollection.add(model.get("fields"));
+                var fieldArray = [],
+                    fields = model.get("fields");
+
+//                console.log(model);
+
+                _.each(fields, function (field) {
+                    fieldArray = self.getArrayByType(field.type);
+
+                    self.itemsModel.set(field.type, fieldArray);
+                });
+
             });
 
-            console.log('here', this.itemsCollection.models);
+            console.log(this.itemsModel.attributes);
+
         },
 
+        getArrayByType: function (type) {
+            var arr = [];
 
+            _.each(this.models, function (model) {
+                var fields = model.get("fields");
+
+                _.each(fields, function (field) {
+                    if (field.type === type) { arr.push(field); }
+                });
+            });
+
+            return arr;
+        },
 
         setId: function (id) {
             var model = new this.model({

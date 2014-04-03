@@ -457,23 +457,44 @@
 </ul>
 
 <script type="text/template" id="list-view-tpl">
-    <li class="item">
-        <ul>
-            <li class="disabledFieldsList"></li>
-
-            <% _.each(models , function (model) { %>
-                <% _.each(getAllByType(model.get("type")), function (model) { %>
-                    <li>
-                        <button>X</button>
-                        <h5 class="starsNumber">5</h5>
-                        <span>
-                            <img src="<%= model.get('value') %>" alt=""/>
-                        </span>
-                    </li>
-                <% }); %>
+            <% _.each(attributes, function (fields) { %>
+                <li class="item">
+                    <ul>
+                        <% _.each(fields, function (field, index) { %>
+                            <% if (index === 0 && field.type !== 'picture') { %>
+                                <li class="fieldName"><span><%= field.fieldName %></span></li>
+                            <% } %>
+                            <% if (field.type === 'picture') { %>
+                                <% if (index === 0) { %>
+                                    <li class="disabledFieldsList">
+                                        <span>Disabled fields:</span>
+                                        <ul>
+                                            <li>Price</li>
+                                            <li>Width</li>
+                                            <li>Width</li>
+                                            <li>Width</li>
+                                            <li>Width</li>
+                                            <li>Width</li>
+                                            <li>Width</li>
+                                        </ul>
+                                    </li>
+                                <%}%>
+                                <li>
+                                    <button>X</button>
+                                    <h5 class="starsNumber">5</h5>
+                                    <span>
+                                        <img src="<%= field.value %>" alt=""/>
+                                    </span>
+                                </li>
+                            <% } else { %>
+                                <li>
+                                    <span><%= field.value %></span>
+                                </li>
+                            <% } %>
+                        <% }); %>
+                    </ul>
+                </li>
             <% }); %>
-        </ul>
-    </li>
 </script>
 
 <script src="../lib/jquery-1.9.1.js"></script>
@@ -484,7 +505,6 @@
 
 <script src="../js/evaluator/evaluator.js"></script>
 <script src="../js/evaluator/eval-item-model.js"></script>
-<script src="../js/evaluator/eval-processor.js"></script>
 <script src="../js/evaluator/eval-items-collection.js"></script>
 <script src="../js/evaluator/eval-collection.js"></script>
 <script src="../js/evaluator/eval-list-view.js"></script>
