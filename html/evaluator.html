@@ -462,12 +462,12 @@
             <li class="disabledFieldsList"></li>
 
             <% _.each(models , function (model) { %>
-                <% _.each(model.get('fields'), function (field) { %>
+                <% _.each(getAllByType(model.get("type")), function (model) { %>
                     <li>
                         <button>X</button>
                         <h5 class="starsNumber">5</h5>
                         <span>
-                            <img src="<%= field.value %>" alt=""/>
+                            <img src="<%= model.get('value') %>" alt=""/>
                         </span>
                     </li>
                 <% }); %>

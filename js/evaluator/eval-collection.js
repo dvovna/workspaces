@@ -8,24 +8,24 @@
         initialize: function (options) {
             this.options = options || {};
 
-            _.bindAll(this, "createFieldsCollection");
-
             this.itemsCollection = new W.Eval.ItemsCollection();
 
             this.on("change", this.onChange, this);
         },
 
         onChange: function () {
-            _.map(this.models, this.createFieldsCollection);
+            var self = this;
+
+            this.itemsCollection.reset();
+
+            _.each(this.models, function (model) {
+                self.itemsCollection.add(model.get("fields"));
+            });
+
+            console.log('here', this.itemsCollection.models);
         },
 
-        createFieldsCollection: function (model) {
-            if (!model.attributes.hasOwnProperty("fields")) { return; }
 
-
-            console.log('foo', model.attributes);
-
-        },
 
         setId: function (id) {
             var model = new this.model({

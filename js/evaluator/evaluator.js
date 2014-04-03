@@ -13,15 +13,15 @@
                 collection: this.ListCollection
             });
 
-            this.ListCollection.on("change", this.onCollectionChange, this);
-
             $(".evaluator").html(this.listView.$el);
 
             this.set(13);
+
+            this.ListCollection.on("change", this.onCollectionChange, this);
         },
 
         onCollectionChange: function () {
-            this.ListCollection.reset();
+//            this.ListCollection.reset();
             console.log("render");
             this.listView.render();
         },

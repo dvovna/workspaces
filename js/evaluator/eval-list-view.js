@@ -13,7 +13,7 @@
         },
 
         render: function () {
-            this.$el.html(this.template(this.collection));
+            this.$el.html(this.template(this.collection.itemsCollection));
         }
     });
 }(window, Backbone));
