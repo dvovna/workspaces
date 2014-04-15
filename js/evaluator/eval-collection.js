@@ -9,13 +9,18 @@
             this.options = options || {};
 
             this.itemsModel = new W.Eval.ItemsModel();
-            this.disabledFieldsModel = new Backbone.Model();
+            this.disabledFieldsCollection = new W.Eval.DisabledFieldsCollection();
 
+            this.disabledFieldsCollection.on("add", this.onChange, this);
             this.on("change", this.onChange, this);
         },
 
         onChange: function () {
             var self = this;
+
+            if (this.disabledFieldsCollection.length) { this.removeDisabledFields(); }
+
+            this.itemsModel.clear();
 
             _.each(this.models, function (model) {
                 var fieldArray = [],
@@ -26,7 +31,23 @@
 
                     self.itemsModel.set(field.type, fieldArray);
                 });
+            });
 
+            this.trigger("ready");
+        },
+
+        removeDisabledFields: function () {
+            var disabledFieldsTypes = this.disabledFieldsCollection.getDisabledFieldsTypes();
+
+            _.each(this.models, function (model) {
+                var fields = model.get("fields");
+
+                _.each(fields, function (field, ind) {
+                    if (_.indexOf(disabledFieldsTypes, field.type) !== -1) {
+                        delete fields[ind];
+                    }
+                });
+                model.set('fields', fields, {silent: true});
             });
         },
 
@@ -45,16 +66,17 @@
         },
 
         setId: function (id) {
-            var model = new this.model({
+            this.add({
                 id: parseInt(id, 10),
                 endpoint: this.options.endpoint
             });
-
-            this.push(model);
         },
 
-        disableFieldByType: function (type) {
-            console.log(type);
+        disableFieldByType: function (type, name) {
+            this.disabledFieldsCollection.add({
+                type: type,
+                name: name
+            });
         }
     });
 }(window, Backbone));

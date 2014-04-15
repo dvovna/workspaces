@@ -491,13 +491,9 @@
 <script type="text/template" id="disabled-view-tpl">
     <h3>Disabled fields:</h3>
     <ul>
-        <li>Price</li>
-        <li>Width</li>
-        <li>Width</li>
-        <li>Width</li>
-        <li>Width</li>
-        <li>Width</li>
-        <li>Width</li>
+        <% _.each(this.collection.models, function (model) { %>
+            <li id="<%= model.get('type') %>"><%= model.get('name') %></li>
+        <% }); %>
     </ul>
 </script>
 
@@ -511,6 +507,7 @@
 <script src="../js/evaluator/eval-item-model.js"></script>
 <script src="../js/evaluator/eval-items-collection.js"></script>
 <script src="../js/evaluator/eval-collection.js"></script>
+<script src="../js/evaluator/disabled-fields-collection.js"></script>
 <script src="../js/evaluator/disabled-fields-view.js"></script>
 <script src="../js/evaluator/eval-list-view.js"></script>
 

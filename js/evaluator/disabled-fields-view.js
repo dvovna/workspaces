@@ -18,7 +18,8 @@
         },
 
         render: function () {
-            this.$el.html(this.template(this.model.attributes));
+            console.log('redner', this.collection.models);
+            this.$el.html(this.template(this.collection));
 
             this.delegateEvents();
         },

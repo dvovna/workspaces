@@ -15,8 +15,10 @@
             this.options = options || {};
 
             this.disabledFieldsView = new W.Eval.DisabledFieldsView({
-                model: this.collection.disabledFieldsModel
+                collection: this.collection.disabledFieldsCollection
             });
+
+            this.collection.on("ready", this.render, this);
         },
 
         render: function () {
@@ -26,12 +28,12 @@
         },
 
         onDisableFieldClick: function (e) {
-            console.log($(e.target).attr("id"));
-            var fieldType = $(e.target).val();
+            var fieldType = $(e.target).attr('id'),
+                fieldName = $(e.target).text();
 
             e.preventDefault();
 
-            this.collection.disableFieldByType(fieldType);
+            this.collection.disableFieldByType(fieldType, fieldName);
         }
     });
 }(window, Backbone, _, $));

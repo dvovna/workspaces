@@ -16,8 +16,8 @@
             $("body").html(this.listView.$el);
 
             this.set(13);
-            this.set(14);
-            this.set(15);
+//            this.set(14);
+//            this.set(15);
 
             this.ListCollection.on("change", this.onCollectionChange, this);
         },
