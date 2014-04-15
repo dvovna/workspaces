@@ -12,13 +12,14 @@
             this.disabledFieldsCollection = new W.Eval.DisabledFieldsCollection();
 
             this.disabledFieldsCollection.on("add", this.onChange, this);
+            this.disabledFieldsCollection.on("remove", this.onChange, this);
             this.on("change", this.onChange, this);
         },
 
         onChange: function () {
             var self = this;
 
-            if (this.disabledFieldsCollection.length) { this.removeDisabledFields(); }
+            this.updateDisabledFields();
 
             this.itemsModel.clear();
 
@@ -36,7 +37,7 @@
             this.trigger("ready");
         },
 
-        removeDisabledFields: function () {
+        updateDisabledFields: function () {
             var disabledFieldsTypes = this.disabledFieldsCollection.getDisabledFieldsTypes();
 
             _.each(this.models, function (model) {
@@ -44,9 +45,12 @@
 
                 _.each(fields, function (field, ind) {
                     if (_.indexOf(disabledFieldsTypes, field.type) !== -1) {
-                        delete fields[ind];
+                        field.disabled = true;
+                    } else {
+                        field.disabled = false;
                     }
                 });
+
                 model.set('fields', fields, {silent: true});
             });
         },
@@ -58,7 +62,7 @@
                 var fields = model.get("fields");
 
                 _.each(fields, function (field) {
-                    if (field.type === type) { arr.push(field); }
+                    if (field.type === type && !field.disabled) { arr.push(field); }
                 });
             });
 

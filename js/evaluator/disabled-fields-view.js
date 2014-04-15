@@ -18,16 +18,17 @@
         },
 
         render: function () {
-            console.log('redner', this.collection.models);
             this.$el.html(this.template(this.collection));
 
             this.delegateEvents();
         },
 
         onRestoreClick: function (e) {
+            var fieldType = $(e.target).attr('id');
+
             e.preventDefault();
 
-            console.log('restore');
+            this.collection.remove(this.collection.where({type: fieldType}));
         }
     });
 }(window));
