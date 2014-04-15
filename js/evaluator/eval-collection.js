@@ -28,9 +28,6 @@
                 });
 
             });
-
-            console.log(this.itemsModel.attributes);
-
         },
 
         getArrayByType: function (type) {
@@ -54,6 +51,10 @@
             });
 
             this.push(model);
+        },
+
+        disableFieldByType: function (type) {
+            console.log(type);
         }
     });
 }(window, Backbone));

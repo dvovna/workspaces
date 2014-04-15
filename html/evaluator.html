@@ -462,7 +462,7 @@
                     <ul>
                         <% _.each(fields, function (field, index) { %>
                             <% if (index === 0 && field.type !== 'picture') { %>
-                                <li class="fieldName"><span><%= field.fieldName %></span></li>
+                                <li class="fieldName"><span id="<%= field.type %>"><%= field.fieldName %></span></li>
                             <% } %>
                             <% if (field.type === 'picture') { %>
                                 <% if (index === 0) { %>
