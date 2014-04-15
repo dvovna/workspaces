@@ -25,7 +25,9 @@
         onCollectionChange: function () {
             this.listView.render();
         },
-
+        /**
+         * public setter
+         */
         set: function (id) {
             this.ListCollection.setId(id);
         }

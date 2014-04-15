@@ -9,6 +9,7 @@
             this.options = options || {};
 
             this.itemsModel = new W.Eval.ItemsModel();
+            this.disabledFieldsModel = new Backbone.Model();
 
             this.on("change", this.onChange, this);
         },
@@ -19,8 +20,6 @@
             _.each(this.models, function (model) {
                 var fieldArray = [],
                     fields = model.get("fields");
-
-//                console.log(model);
 
                 _.each(fields, function (field) {
                     fieldArray = self.getArrayByType(field.type);

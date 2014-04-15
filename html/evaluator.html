@@ -12,7 +12,7 @@
     <li class="item">
         <ul>
             <li class="disabledFieldsList">
-                <span>Disabled fields:</span>
+                <h3>Disabled fields:</h3>
                 <ul>
                     <li>Price</li>
                     <li>Width</li>
@@ -467,16 +467,7 @@
                             <% if (field.type === 'picture') { %>
                                 <% if (index === 0) { %>
                                     <li class="disabledFieldsList">
-                                        <span>Disabled fields:</span>
-                                        <ul>
-                                            <li>Price</li>
-                                            <li>Width</li>
-                                            <li>Width</li>
-                                            <li>Width</li>
-                                            <li>Width</li>
-                                            <li>Width</li>
-                                            <li>Width</li>
-                                        </ul>
+
                                     </li>
                                 <%}%>
                                 <li>
@@ -497,6 +488,19 @@
             <% }); %>
 </script>
 
+<script type="text/template" id="disabled-view-tpl">
+    <h3>Disabled fields:</h3>
+    <ul>
+        <li>Price</li>
+        <li>Width</li>
+        <li>Width</li>
+        <li>Width</li>
+        <li>Width</li>
+        <li>Width</li>
+        <li>Width</li>
+    </ul>
+</script>
+
 <script src="../lib/jquery-1.9.1.js"></script>
 <script src="../lib/underscore-1.5.2.js"></script>
 <script src="../lib/backbone-1.1.js"></script>
@@ -507,6 +511,7 @@
 <script src="../js/evaluator/eval-item-model.js"></script>
 <script src="../js/evaluator/eval-items-collection.js"></script>
 <script src="../js/evaluator/eval-collection.js"></script>
+<script src="../js/evaluator/disabled-fields-view.js"></script>
 <script src="../js/evaluator/eval-list-view.js"></script>
 
 <script type="text/javascript">
@@ -519,7 +524,7 @@
                     {
                         fieldName: "",
                         type: "picture",
-                        value: "http://localhost:63342/workspaces/gfx/small/1.jpg",
+                        value: "../gfx/small/1.jpg",
                         otherData: ""
                     },
                     {

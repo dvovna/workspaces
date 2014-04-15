@@ -19,9 +19,11 @@ $white_smoke_color: whitesmoke
     li.item
         display: inline
         padding: 0px
+        float: left
         width: auto
         ul
             list-style: none
+            float: left
             li
                 display: inline-block
                 border-radius: 15px
@@ -65,6 +67,9 @@ $white_smoke_color: whitesmoke
                 span
                     display: block
                     width: 250px
+                h3
+                    color: $secondary_text_color
+                    margin-bottom: 10px
                 ul
                     display: block
                     color: $secondary_text_color
@@ -76,16 +81,19 @@ $white_smoke_color: whitesmoke
                     padding: 0
                     width: 80%
                     li
+                        border-radius: 0
+                        border: none
+                        color: $secondary_text_color
                         display: block
                         text-align: left
                         float: left
                         font-size: 12px
-                        color: $secondary_text_color
+                        padding: 3px
                         width: 100%
                         &:hover
                             cursor: pointer
-                            color: $better_color
-                            font-size: 15px
+                            color: $white_smoke_color
+                            background-color: $better_color
             li.fieldName
                 text-align: left
                 background-color: white
