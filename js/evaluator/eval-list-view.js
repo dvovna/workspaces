@@ -8,7 +8,8 @@
         template: U.template($("#list-view-tpl").html()),
 
         events: {
-            "click .fieldName": "onDisableFieldClick"
+            "click .fieldName": "onDisableFieldClick",
+            "click button": "onItemRemoveClick"
         },
 
         initialize: function (options) {
@@ -34,6 +35,12 @@
             e.preventDefault();
 
             this.collection.disableFieldByType(fieldType, fieldName);
+        },
+
+        onItemRemoveClick: function (e) {
+            var itemId = $(e.target).attr('id');
+
+            this.collection.removeItem(itemId);
         }
     });
 }(window, Backbone, _, $));

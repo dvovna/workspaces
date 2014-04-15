@@ -14,6 +14,7 @@
             this.disabledFieldsCollection.on("add", this.onChange, this);
             this.disabledFieldsCollection.on("remove", this.onChange, this);
             this.on("change", this.onChange, this);
+            this.on("remove", this.onChange, this);
         },
 
         onChange: function () {
@@ -81,6 +82,10 @@
                 type: type,
                 name: name
             });
+        },
+
+        removeItem: function (id) {
+            this.remove(this.where({id: parseInt(id, 10)}));
         }
     });
 }(window, Backbone));

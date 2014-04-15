@@ -22,6 +22,12 @@
         },
 
         onSuccess: function (data) {
+            var self = this;
+
+            _.each(data, function (item) {
+                item.itemId = self.get("id");
+            });
+
             this.set('fields', data);
         }
     });
