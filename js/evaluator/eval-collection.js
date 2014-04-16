@@ -37,6 +37,8 @@
 
             this.parseBetterItems();
 
+            this.countBetterItems();
+
             this.trigger("ready");
         },
 
@@ -103,8 +105,6 @@
                     }
                 });
             });
-
-            console.log(this.itemsModel.attributes);
         },
 
         isBetterItem: function (arr, item) {
@@ -136,6 +136,18 @@
             });
 
             return minItem;
+        },
+
+        countBetterItems: function () {
+//            var fields = this.itemsModel.attributes,
+//                count;
+//
+//            _.each(fields, function (itemArray) {
+//                count = 0;
+//                _.each(itemArray, function (item) {
+//                    if (item.isBetter) { ++count; }
+//                });
+//            });
         }
     });
 }(window, Backbone));
