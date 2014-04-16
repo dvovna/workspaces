@@ -30,7 +30,7 @@
                             </span>
                         </li>
                     <% } else { %>
-                        <li>
+                        <li <% if (field.isBetter) {%>class="better"<% } %>>
                             <span><%= field.value %></span>
                         </li>
                     <% } %>
@@ -64,7 +64,6 @@
 <script src="../js/evaluator/eval-list-view.js"></script>
 
 <script type="text/javascript">
-
     $.mockjax({
         url: '/test/*',
         responseTime: 1000,
@@ -74,25 +73,29 @@
                         fieldName: "",
                         type: "picture",
                         value: "../gfx/small/1.jpg",
-                        otherData: ""
+                        otherData: "",
+                        evalRule: 0
                     },
                     {
                         fieldName: "Цена",
                         type: "price",
-                        value: 100,
-                        otherData: "$"
+                        value: new Date().getTime(),
+                        otherData: "$",
+                        evalRule: "MIN"
                     },
                     {
                         fieldName: "Характеристики процессора",
                         type: "processor",
                         value: 1000,
-                        otherData: "МГц"
+                        otherData: "МГц",
+                        evalRule: "MAX"
                     },
                     {
                         fieldName: "Число ядер",
                         type: "yadra:)",
                         value: 1000,
-                        otherData: "МГц"
+                        otherData: "МГц",
+                        evalRule: "MAX"
                     }
                 ]);
         }

@@ -35,6 +35,8 @@
                 });
             });
 
+            this.parseBetterItems();
+
             this.trigger("ready");
         },
 
@@ -86,6 +88,54 @@
 
         removeItem: function (id) {
             this.remove(this.where({id: parseInt(id, 10)}));
+        },
+
+        parseBetterItems: function () {
+            var fields = this.itemsModel.attributes,
+                self = this;
+
+            _.each(fields, function (itemArray) {
+                _.each(itemArray, function (item) {
+                    if (self.isBetterItem(itemArray, item)) {
+                        item.isBetter = true;
+                    } else {
+                        item.isBetter = false;
+                    }
+                });
+            });
+
+            console.log(this.itemsModel.attributes);
+        },
+
+        isBetterItem: function (arr, item) {
+            var bestItem;
+
+            if (!item.evalRule) { return; }
+
+            if (item.evalRule === "MAX") { bestItem = this.findMaxItem(arr); }
+            if (item.evalRule === "MIN") { bestItem = this.findMinItem(arr); }
+
+            return item.evalRule === "MAX" ? item.value >= bestItem : item.value <= bestItem;
+        },
+
+        findMaxItem: function (arr) {
+            var maxItem = arr[0].value;
+
+            _.each(arr, function (subItem) {
+                if (maxItem < subItem.value) { maxItem = subItem.value; }
+            });
+
+            return maxItem;
+        },
+
+        findMinItem: function (arr) {
+            var minItem = arr[0].value;
+
+            _.each(arr, function (subItem) {
+                if (minItem > subItem.value) { minItem = subItem.value; }
+            });
+
+            return minItem;
         }
     });
 }(window, Backbone));
