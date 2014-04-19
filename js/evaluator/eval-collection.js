@@ -139,15 +139,27 @@
         },
 
         countBetterItems: function () {
-//            var fields = this.itemsModel.attributes,
-//                count;
-//
-//            _.each(fields, function (itemArray) {
-//                count = 0;
-//                _.each(itemArray, function (item) {
-//                    if (item.isBetter) { ++count; }
-//                });
-//            });
+            var fields = this.itemsModel.attributes,
+                self = this;
+
+            _.each(this.models, function (model) {
+                if (!model.get('fields')) { return; }
+
+                model.get('fields')[0].betterCount = self.getBetterFieldsNumber(model.get("fields"));
+            });
+        },
+
+        getBetterFieldsNumber: function (fields) {
+            var count = 0;
+
+
+            _.each(fields, function (field) {
+                if (field.isBetter) {
+                    count += 1;
+                }
+            });
+
+            return count;
         }
     });
 }(window, Backbone));
