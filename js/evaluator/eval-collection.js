@@ -3,16 +3,17 @@
 
     W.Eval = W.Eval || {};
     W.Eval.ListCollection = Backbone.Collection.extend({
-        model: W.Eval.EvalItemModel,
-
         initialize: function (options) {
             this.options = options || {};
+
+            this.model = W.Eval.EvalItemModel;
 
             this.itemsModel = new W.Eval.ItemsModel();
             this.disabledFieldsCollection = new W.Eval.DisabledFieldsCollection();
 
             this.disabledFieldsCollection.on("add", this.onChange, this);
             this.disabledFieldsCollection.on("remove", this.onChange, this);
+
             this.on("change", this.onChange, this);
             this.on("remove", this.onChange, this);
         },
@@ -152,9 +153,8 @@
         getBetterFieldsNumber: function (fields) {
             var count = 0;
 
-
             _.each(fields, function (field) {
-                if (field.isBetter) {
+                if (field.isBetter && !field.disabled) {
                     count += 1;
                 }
             });

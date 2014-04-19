@@ -15,6 +15,7 @@
 
             $("body").html(this.listView.$el);
 
+            this.ListCollection.reset();
             this.set(13);
             this.set(14);
             this.set(15);
