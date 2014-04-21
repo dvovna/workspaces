@@ -80,7 +80,11 @@
         },
 
         onTopWSDropped: function (data) {
-            var  arr = [];
+            var arr = this.state.get("topWSItemIds") || [];
+
+            arr = _.compact(arr);
+
+            if (_.indexOf(arr, data.itemId) !== -1) { return; }
 
             arr.push(data.itemId);
 

@@ -123,11 +123,10 @@ WS.Constants = {
         },
 
         onStateChangeTopWSItemId: function () {
-            var ids = this.state.get("topWSItemIds"),
+            var ids = this.state.get("topWSItemIds") || [],
                 self = this;
 
             _.each(ids, function (id) {
-                console.log('set', id);
                 self.evaluator.set(id);
             });
         },
