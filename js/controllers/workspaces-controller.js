@@ -25,8 +25,10 @@
             });
 
             this.leftWorkspaceController.on("dropped", this.onLeftWSDropped, this);
+            this.topWorkspaceController.on("dropped", this.onTopWSDropped, this);
 
             this.leftWorkspaceController.workspaceView.$el.append(this.options.overviewer.overviewerEl);
+            this.topWorkspaceController.workspaceView.$el.append(this.options.evaluator.evaluatorEl);
 
             this.leftWorkspaceController.on('showed', this.onWSOpened, this);
             this.rightWorkspaceController.on('showed', this.onWSOpened, this);
@@ -74,7 +76,15 @@
         },
 
         onLeftWSDropped: function (data) {
-            this.state.set(data);
+            this.state.set({leftWSItemId: data.itemId});
+        },
+
+        onTopWSDropped: function (data) {
+            var  arr = [];
+
+            arr.push(data.itemId);
+
+            this.state.set({topWSItemIds: arr});
         }
     });
 }(WS, $, Backbone));

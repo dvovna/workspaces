@@ -90,7 +90,9 @@
         },
 
         removeItem: function (id) {
-            this.remove(this.where({id: parseInt(id, 10)}));
+            this.remove(this.where({id: parseInt(id, 10)}), {silent: true});
+
+            this.trigger("remove", id);
         },
 
         parseBetterItems: function () {

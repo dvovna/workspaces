@@ -285,7 +285,7 @@
   width: 100%; }
   /* line 44, ../sass/workspaces.sass */
   .wsWorkspace.top {
-    background-color: black;
+    background-color: whitesmoke;
     top: -100%;
     left: 0px; }
   /* line 48, ../sass/workspaces.sass */

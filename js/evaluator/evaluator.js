@@ -13,18 +13,22 @@
                 collection: this.ListCollection
             });
 
-            $("body").html(this.listView.$el);
-
             this.ListCollection.reset();
-            this.set(13);
-            this.set(14);
-            this.set(15);
+
+            this.evaluatorEl = this.listView.$el;
+//            this.set(13);
 
             this.ListCollection.on("change", this.onCollectionChange, this);
+            this.ListCollection.on("remove", this.onItemRemove, this);
         },
 
         onCollectionChange: function () {
             this.listView.render();
+        },
+
+        onItemRemove: function (id) {
+            console.log(id);
+            this.trigger("remove", id);
         },
         /**
          * public setter
