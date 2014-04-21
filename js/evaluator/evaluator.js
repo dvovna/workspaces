@@ -16,7 +16,6 @@
             this.ListCollection.reset();
 
             this.evaluatorEl = this.listView.$el;
-//            this.set(13);
 
             this.ListCollection.on("change", this.onCollectionChange, this);
             this.ListCollection.on("remove", this.onItemRemove, this);
@@ -27,7 +26,6 @@
         },
 
         onItemRemove: function (id) {
-            console.log(id);
             this.trigger("remove", id);
         },
         /**

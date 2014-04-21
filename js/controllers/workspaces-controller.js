@@ -11,7 +11,7 @@
             this.state = this.options.state;
 
             this.topWorkspaceModel = new WS.WorkspaceModel();
-            this.topWorkspaceController = new WS.WorkspaceController({
+            this.topWorkspaceController = new WS.TopWorkspaceController({
                 model: this.topWorkspaceModel,
                 placement: WS.Constants.TOP
             });
