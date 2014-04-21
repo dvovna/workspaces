@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluator</title>
+    <meta charset="utf-8"/>
+
+    <link rel="stylesheet" href="../css/workspaces.css"/>
+</head>
+<body>
+
+<script type="text/template" id="list-view-tpl">
+    <% _.each(attributes, function (fields) { %>
+        <li class="item">
+            <ul>
+                <% _.each(fields, function (field, index) { %>
+                    <% if (index === 0 && field.type !== 'picture') { %>
+                        <li class="fieldName">
+                            <span id="<%= field.type %>"><%= field.fieldName %></span>
+                        </li>
+                    <% } %>
+                    <% if (field.type === 'picture') { %>
+                        <% if (index === 0) { %>
+                            <li class="disabledFieldsList"></li>
+                        <%}%>
+                        <li>
+                            <button id="<%= field.itemId %>">X</button>
+                            <h5 class="starsNumber"><%= field.betterCount %></h5>
+                            <span>
+                                <img src="<%= field.value %>" alt=""/>
+                            </span>
+                        </li>
+                    <% } else { %>
+                        <li <% if (field.isBetter) {%>class="better"<% } %>>
+                            <span><%= field.value %></span>
+                        </li>
+                    <% } %>
+                <% }); %>
+            </ul>
+        </li>
+    <% }); %>
+</script>
+
+<script type="text/template" id="disabled-view-tpl">
+    <h3>Disabled fields:</h3>
+    <ul>
+        <% _.each(this.collection.models, function (model) { %>
+            <li id="<%= model.get('type') %>"><%= model.get('name') %></li>
+        <% }); %>
+    </ul>
+</script>
+
+<script src="../lib/jquery-1.9.1.js"></script>
+<script src="../lib/underscore-1.5.2.js"></script>
+<script src="../lib/backbone-1.1.js"></script>
+
+<script src="mockjax-lib.js"></script>
+
+<script src="../js/evaluator/evaluator.js"></script>
+<script src="../js/evaluator/eval-item-model.js"></script>
+<script src="../js/evaluator/eval-items-collection.js"></script>
+<script src="../js/evaluator/eval-collection.js"></script>
+<script src="../js/evaluator/disabled-fields-collection.js"></script>
+<script src="../js/evaluator/disabled-fields-view.js"></script>
+<script src="../js/evaluator/eval-list-view.js"></script>
+
+<script type="text/javascript">
+    $.mockjax({
+        url: '/test/*',
+        responseTime: 1000,
+        response: function () {
+            this.responseText = JSON.stringify([
+                    {
+                        fieldName: "",
+                        type: "picture",
+                        value: "../gfx/small/1.jpg",
+                        otherData: "",
+                        evalRule: 0
+                    },
+                    {
+                        fieldName: "Цена",
+                        type: "price",
+                        value: new Date().getTime(),
+                        otherData: "$",
+                        evalRule: "MIN"
+                    },
+                    {
+                        fieldName: "Характеристики процессора",
+                        type: "processor",
+                        value: new Date().getDay() + new Date().getTime(),
+                        otherData: "МГц",
+                        evalRule: "MAX"
+                    },
+                    {
+                        fieldName: "Число ядер",
+                        type: "yadra:)",
+                        value: new Date().getTime() + new Date().getTime() - Math.floor(Math.random()*10000),
+                        otherData: "МГц",
+                        evalRule: "MAX"
+                    }
+                ]);
+        }
+    });
+
+    $(document).ready(function () {
+        window.evaluator = new window.Evaluator({
+            endpoint: "/test/"
+        });
+    });
+</script>
+
+</body>
+</html>
