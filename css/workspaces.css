@@ -119,42 +119,43 @@
   margin: auto;
   text-align: center;
   white-space: nowrap;
+  overflow-x: auto;
   padding: 0px;
   padding-top: 10px;
-  padding-right: 20px;
+  padding-right: 0px;
   font-size: 14px;
-  width: auto; }
-  /* line 15, ../sass/_evaluator.sass */
+  width: 100%; }
+  /* line 16, ../sass/_evaluator.sass */
   .evaluator > li:first-child > ul {
     padding-bottom: 10px;
     border-bottom: 1px solid whitesmoke;
     margin-bottom: 10px; }
-  /* line 19, ../sass/_evaluator.sass */
+  /* line 20, ../sass/_evaluator.sass */
   .evaluator li.item {
     display: inline;
     padding: 0px;
     float: left;
     width: auto; }
-    /* line 24, ../sass/_evaluator.sass */
+    /* line 25, ../sass/_evaluator.sass */
     .evaluator li.item ul {
       list-style: none;
       float: left; }
-      /* line 27, ../sass/_evaluator.sass */
+      /* line 28, ../sass/_evaluator.sass */
       .evaluator li.item ul li {
         display: inline-block;
         border-radius: 15px;
         text-align: center;
         position: relative;
         margin-bottom: 5px; }
-        /* line 33, ../sass/_evaluator.sass */
+        /* line 34, ../sass/_evaluator.sass */
         .evaluator li.item ul li.better {
           background-color: mediumslateblue;
           color: whitesmoke; }
-        /* line 36, ../sass/_evaluator.sass */
+        /* line 37, ../sass/_evaluator.sass */
         .evaluator li.item ul li span {
           display: inline-block;
           width: 200px; }
-        /* line 39, ../sass/_evaluator.sass */
+        /* line 40, ../sass/_evaluator.sass */
         .evaluator li.item ul li h5.starsNumber {
           display: block;
           background-color: whitesmoke;
@@ -166,7 +167,7 @@
           opacity: 0.9;
           padding: 5px;
           margin: 0px; }
-        /* line 50, ../sass/_evaluator.sass */
+        /* line 51, ../sass/_evaluator.sass */
         .evaluator li.item ul li button {
           border: none;
           display: block;
@@ -178,24 +179,24 @@
           position: absolute;
           right: 5px;
           opacity: 0.8; }
-          /* line 61, ../sass/_evaluator.sass */
+          /* line 62, ../sass/_evaluator.sass */
           .evaluator li.item ul li button:active {
             background-color: white;
             color: black; }
-      /* line 64, ../sass/_evaluator.sass */
+      /* line 65, ../sass/_evaluator.sass */
       .evaluator li.item ul .disabledFieldsList {
         float: left;
         text-align: left;
         width: 250px; }
-        /* line 68, ../sass/_evaluator.sass */
+        /* line 69, ../sass/_evaluator.sass */
         .evaluator li.item ul .disabledFieldsList span {
           display: block;
           width: 250px; }
-        /* line 71, ../sass/_evaluator.sass */
+        /* line 72, ../sass/_evaluator.sass */
         .evaluator li.item ul .disabledFieldsList h3 {
           color: grey;
           margin-bottom: 10px; }
-        /* line 74, ../sass/_evaluator.sass */
+        /* line 75, ../sass/_evaluator.sass */
         .evaluator li.item ul .disabledFieldsList ul {
           display: block;
           color: grey;
@@ -206,7 +207,7 @@
           max-height: 90px;
           padding: 0;
           width: 80%; }
-          /* line 84, ../sass/_evaluator.sass */
+          /* line 85, ../sass/_evaluator.sass */
           .evaluator li.item ul .disabledFieldsList ul li {
             border-radius: 0;
             border: none;
@@ -217,23 +218,23 @@
             font-size: 12px;
             padding: 3px;
             width: 100%; }
-            /* line 94, ../sass/_evaluator.sass */
+            /* line 95, ../sass/_evaluator.sass */
             .evaluator li.item ul .disabledFieldsList ul li:hover {
               cursor: pointer;
               color: whitesmoke;
               background-color: mediumslateblue; }
-      /* line 98, ../sass/_evaluator.sass */
+      /* line 99, ../sass/_evaluator.sass */
       .evaluator li.item ul li.fieldName {
         text-align: left;
         background-color: white; }
-        /* line 101, ../sass/_evaluator.sass */
+        /* line 102, ../sass/_evaluator.sass */
         .evaluator li.item ul li.fieldName:hover {
           color: red;
           cursor: pointer; }
-          /* line 104, ../sass/_evaluator.sass */
+          /* line 105, ../sass/_evaluator.sass */
           .evaluator li.item ul li.fieldName:hover span {
             text-decoration: line-through; }
-        /* line 106, ../sass/_evaluator.sass */
+        /* line 107, ../sass/_evaluator.sass */
         .evaluator li.item ul li.fieldName span {
           width: 250px; }
 
