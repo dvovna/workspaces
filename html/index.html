@@ -8,30 +8,7 @@
 
     <meta charset="utf-8"/>
 
-    <script src="../lib/jquery-1.9.1.js"></script>
-    <script src="../lib/underscore-1.5.2.js"></script>
-    <script src="../lib/backbone-1.1.js"></script>
-
-    <script type="text/javascript" src="mockjax-lib.js"></script>
-    <script type="text/javascript" src="mocks.js"></script>
-
-    <script type="text/javascript" src="../js/overviewer/overviewer.js"></script>
-    <script type="text/javascript" src="../js/overviewer/overviewer-model.js"></script>
-    <script type="text/javascript" src="../js/overviewer/images-view.js"></script>
-    <script type="text/javascript" src="../js/overviewer/description-view.js"></script>
-    <script type="text/javascript" src="../js/overviewer/active-img-view.js"></script>
-
-    <link rel="stylesheet" href="../css/overviewer.css"/>
-
-    <script src="../js/workspaces.js"></script>
-    <script src="../js/controllers/workspace-controller.js"></script>
-    <script src="../js/controllers/dragging-controller.js"></script>
-    <script src="../js/views/collector-view.js"></script>
-    <script src="../js/views/workspace-view.js"></script>
-    <script src="../js/models/workspace-model.js"></script>
-    <script src="../js/controllers/switcher-controller.js"></script>
-    <script src="../js/models/workspaces-state-model.js"></script>
-    <script src="../js/controllers/workspaces-controller.js"></script>
+    <link rel="stylesheet" href="../css/workspaces.css"/>
 </head>
 
 <body>
@@ -71,15 +48,97 @@
     </ul>
 </script>
 
+<script type="text/template" id="list-view-tpl">
+    <% _.each(attributes, function (fields) { %>
+        <li class="item">
+            <ul>
+                <% _.each(fields, function (field, index) { %>
+                <% if (index === 0 && field.type !== 'picture') { %>
+                    <li class="fieldName">
+                        <span id="<%= field.type %>"><%= field.fieldName %></span>
+                    </li>
+                <% } %>
+                <% if (field.type === 'picture') { %>
+                <% if (index === 0) { %>
+                    <li class="disabledFieldsList"></li>
+                <%}%>
+                    <li>
+                        <button id="<%= field.itemId %>">X</button>
+                        <h5 class="starsNumber"><%= field.betterCount %></h5>
+                        <span>
+                            <img src="<%= field.value %>" alt=""/>
+                        </span>
+                    </li>
+                <% } else { %>
+                    <li <% if (field.isBetter) {%>class="better"<% } %>>
+                        <span><%= field.value %></span>
+                    </li>
+                <% } %>
+        <% }); %>
+        </ul>
+        </li>
+    <% }); %>
+</script>
 
+<script type="text/template" id="disabled-view-tpl">
+    <h3>Disabled fields:</h3>
+    <ul>
+        <% _.each(this.collection.models, function (model) { %>
+        <li id="<%= model.get('type') %>"><%= model.get('name') %></li>
+        <% }); %>
+    </ul>
+</script>
 
 <h1>Hello!</h1>
 
 <img src="../gfx/iphone.jpg" data-item-id="1" />
+<img src="../gfx/iphone.jpg" data-item-id="2" />
+<img src="../gfx/iphone.jpg" data-item-id="3" />
+<img src="../gfx/iphone.jpg" data-item-id="4" />
+<img src="../gfx/iphone.jpg" data-item-id="5" />
+<img src="../gfx/iphone.jpg" data-item-id="6" />
+<img src="../gfx/iphone.jpg" data-item-id="7" />
+<img src="../gfx/iphone.jpg" data-item-id="8" />
 
 <hr/>
 
 <a href="#" class="wsSwitcher"></a>
+
+
+<script src="../lib/jquery-1.9.1.js"></script>
+<script src="../lib/underscore-1.5.2.js"></script>
+<script src="../lib/backbone-1.1.js"></script>
+<script src="../lib/deparam-1.0.js"></script>
+
+<script type="text/javascript" src="mockjax-lib.js"></script>
+<script type="text/javascript" src="mocks.js"></script>
+
+
+<script src="../js/evaluator/evaluator.js"></script>
+<script src="../js/evaluator/eval-item-model.js"></script>
+<script src="../js/evaluator/eval-items-collection.js"></script>
+<script src="../js/evaluator/eval-collection.js"></script>
+<script src="../js/evaluator/disabled-fields-collection.js"></script>
+<script src="../js/evaluator/disabled-fields-view.js"></script>
+<script src="../js/evaluator/eval-list-view.js"></script>
+
+<script type="text/javascript" src="../js/overviewer/overviewer.js"></script>
+<script type="text/javascript" src="../js/overviewer/overviewer-model.js"></script>
+<script type="text/javascript" src="../js/overviewer/images-view.js"></script>
+<script type="text/javascript" src="../js/overviewer/description-view.js"></script>
+<script type="text/javascript" src="../js/overviewer/active-img-view.js"></script>
+
+<script src="../js/workspaces.js"></script>
+<script src="../js/controllers/workspace-controller.js"></script>
+<script src="../js/controllers/top-workspace-controller.js"></script>
+<script src="../js/controllers/dragging-controller.js"></script>
+<script src="../js/views/collector-view.js"></script>
+<script src="../js/views/workspace-view.js"></script>
+<script src="../js/models/workspace-model.js"></script>
+<script src="../js/controllers/switcher-controller.js"></script>
+<script src="../js/models/workspaces-state-model.js"></script>
+<script src="../js/controllers/workspaces-controller.js"></script>
+
 
 <script type="text/javascript">
     $(document).ready(function() {

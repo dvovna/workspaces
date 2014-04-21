@@ -11,7 +11,7 @@
             this.state = this.options.state;
 
             this.topWorkspaceModel = new WS.WorkspaceModel();
-            this.topWorkspaceController = new WS.WorkspaceController({
+            this.topWorkspaceController = new WS.TopWorkspaceController({
                 model: this.topWorkspaceModel,
                 placement: WS.Constants.TOP
             });
@@ -25,8 +25,10 @@
             });
 
             this.leftWorkspaceController.on("dropped", this.onLeftWSDropped, this);
+            this.topWorkspaceController.on("dropped", this.onTopWSDropped, this);
 
             this.leftWorkspaceController.workspaceView.$el.append(this.options.overviewer.overviewerEl);
+            this.topWorkspaceController.workspaceView.$el.append(this.options.evaluator.evaluatorEl);
 
             this.leftWorkspaceController.on('showed', this.onWSOpened, this);
             this.rightWorkspaceController.on('showed', this.onWSOpened, this);
@@ -74,7 +76,19 @@
         },
 
         onLeftWSDropped: function (data) {
-            this.state.set(data);
+            this.state.set({leftWSItemId: data.itemId});
+        },
+
+        onTopWSDropped: function (data) {
+            var arr = this.state.get("topWSItemIds") || [];
+
+            arr = _.compact(arr);
+
+            if (_.indexOf(arr, data.itemId) !== -1) { return; }
+
+            arr.push(data.itemId);
+
+            this.state.set({topWSItemIds: arr});
         }
     });
 }(WS, $, Backbone));

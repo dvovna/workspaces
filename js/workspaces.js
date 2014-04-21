@@ -27,12 +27,20 @@ WS.Constants = {
 
             this.state = new WS.WorkspacesStateModel();
 
-            this.overviewer = new Overviewer({
+            this.overviewer = new W.Overviewer({
                 onStateChange: this.onOverviewerStateChange
             });
 
+            this.evaluator = new W.Evaluator({
+                endpoint: "/test/",
+                onStateChange: this.onItemRemoved
+            });
+
+            this.evaluator.on("remove", this.onItemRemoved, this);
+
             this.wssController = new WS.WorkspacesController({
                 overviewer: this.overviewer,
+                evaluator: this.evaluator,
                 state: this.state
             });
 
@@ -45,7 +53,8 @@ WS.Constants = {
             this.state.on("change", this.onStateChange, this);
             this.state.on("change:active", this.onStateChangeActive, this);
             this.state.on("change:switching", this.onStateChangeSwitching, this);
-            this.state.on("change:itemId", this.onStateChangeItemId, this);
+            this.state.on("change:leftWSItemId", this.onStateChangeLeftWSItemId, this);
+            this.state.on("change:topWSItemIds", this.onStateChangeTopWSItemId, this);
             this.state.on("change:activeImgIndx", this.onStateChangeActiveImgIndx, this);
 
             this.wssController.on('showed', this.onWSOpened, this);
@@ -55,7 +64,7 @@ WS.Constants = {
         index: function (args) {
             if (!args) { return; }
 
-            this.state.set(this.deparam(args));
+            this.state.set($.deparam(args));
         },
 
         onWorkspaceSwitching: function (flag) {
@@ -93,25 +102,33 @@ WS.Constants = {
             if (switching === "true") { this.wssController.showAllCollectors(); }
         },
 
-        deparam: function (querystring) {
-            querystring = querystring.substring(querystring.indexOf('?') + 1).split('&');
-
-            var params = {}, pair, d = decodeURIComponent, i;
-
-            for (i = querystring.length; i > 0; ) {
-                pair = querystring[--i].split('=');
-                params[d(pair[0])] = d(pair[1]);
-            }
-
-            return params;
-        },
-
         onOverviewerStateChange: function (data) {
             this.state.set(data);
         },
 
-        onStateChangeItemId: function () {
-            this.overviewer.setItemId(this.state.get("itemId"));
+        onItemRemoved: function (removedId) {
+            var ids = this.state.get("topWSItemIds") || [];
+
+            _.each(ids, function (id, indx) {
+                if (parseInt(id, 10) === parseInt(removedId, 10)) { delete ids[indx]; }
+            });
+
+            this.state.set({topWSItemIds: ids});
+
+            this.onStateChange();
+        },
+
+        onStateChangeLeftWSItemId: function () {
+            this.overviewer.setItemId(this.state.get("leftWSItemId"));
+        },
+
+        onStateChangeTopWSItemId: function () {
+            var ids = this.state.get("topWSItemIds") || [],
+                self = this;
+
+            _.each(ids, function (id) {
+                self.evaluator.set(id);
+            });
         },
 
         onStateChangeActiveImgIndx: function () {

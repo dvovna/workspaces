@@ -37,3 +37,40 @@ $.mockjax({
         };
     }
 });
+
+$.mockjax({
+    url: '/test/*',
+    responseTime: 1000,
+    response: function () {
+        this.responseText = JSON.stringify([
+            {
+                fieldName: "",
+                type: "picture",
+                value: "../gfx/small/1.jpg",
+                otherData: "",
+                evalRule: 0
+            },
+            {
+                fieldName: "Цена",
+                type: "price",
+                value: new Date().getTime(),
+                otherData: "$",
+                evalRule: "MIN"
+            },
+            {
+                fieldName: "Характеристики процессора",
+                type: "processor",
+                value: new Date().getDay() + new Date().getTime(),
+                otherData: "МГц",
+                evalRule: "MAX"
+            },
+            {
+                fieldName: "Число ядер",
+                type: "yadra:)",
+                value: new Date().getTime() + new Date().getTime() - Math.floor(Math.random()*10000),
+                otherData: "МГц",
+                evalRule: "MAX"
+            }
+        ]);
+    }
+});
