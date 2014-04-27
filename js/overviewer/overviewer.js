@@ -8,7 +8,7 @@ window.OVW = {};
             this.options = options || {};
 
             this.overvierModel = new OVW.OverviewerModel({
-                path: "getOverview",
+                path: this.options.endPoint,
                 itemId: this.options.itemId || ""
             });
 

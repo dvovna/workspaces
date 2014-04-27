@@ -28,11 +28,12 @@ WS.Constants = {
             this.state = new WS.WorkspacesStateModel();
 
             this.overviewer = new W.Overviewer({
+                endPoint: this.options.overviewUrl,
                 onStateChange: this.onOverviewerStateChange
             });
 
             this.evaluator = new W.Evaluator({
-                endpoint: "/test/",
+                endpoint: this.options.evalUrl,
                 onStateChange: this.onItemRemoved
             });
 
