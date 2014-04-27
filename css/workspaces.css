@@ -51,64 +51,65 @@
   right: 0px;
   position: absolute;
   height: 100%;
+  padding-right: 50px;
   width: 33%; }
-  /* line 47, ../sass/_overviewer.sass */
+  /* line 48, ../sass/_overviewer.sass */
   .overviewWS .descriptionContainer h1 {
     padding-left: 1%;
     padding-bottom: 0px;
     margin-bottom: 0px;
     font-size: 24px; }
-    /* line 52, ../sass/_overviewer.sass */
+    /* line 53, ../sass/_overviewer.sass */
     .overviewWS .descriptionContainer h1 a {
       text-decoration: none;
       color: #034b83; }
-    /* line 55, ../sass/_overviewer.sass */
+    /* line 56, ../sass/_overviewer.sass */
     .overviewWS .descriptionContainer h1 span.price {
       color: #993300;
       font-size: 34px;
       padding-left: 10px; }
-    /* line 59, ../sass/_overviewer.sass */
+    /* line 60, ../sass/_overviewer.sass */
     .overviewWS .descriptionContainer h1 span {
       font-size: 23px;
       color: grey; }
-    /* line 62, ../sass/_overviewer.sass */
+    /* line 63, ../sass/_overviewer.sass */
     .overviewWS .descriptionContainer h1 span.date {
       font-size: 16px;
       padding-left: 10px;
       color: grey; }
-  /* line 66, ../sass/_overviewer.sass */
+  /* line 67, ../sass/_overviewer.sass */
   .overviewWS .descriptionContainer p {
     font-size: 14px;
     margin-left: 10px;
     padding-right: 20px; }
-  /* line 70, ../sass/_overviewer.sass */
+  /* line 71, ../sass/_overviewer.sass */
   .overviewWS .descriptionContainer h2 {
     font-size: 20px;
     margin-bottom: 0px;
     color: grey; }
-    /* line 74, ../sass/_overviewer.sass */
+    /* line 75, ../sass/_overviewer.sass */
     .overviewWS .descriptionContainer h2 p {
       font-size: 16px; }
-  /* line 76, ../sass/_overviewer.sass */
+  /* line 77, ../sass/_overviewer.sass */
   .overviewWS .descriptionContainer ul {
     list-style: none;
     display: inline-table;
     margin: 0px;
     padding: 10px;
     width: 90%; }
-    /* line 82, ../sass/_overviewer.sass */
+    /* line 83, ../sass/_overviewer.sass */
     .overviewWS .descriptionContainer ul li {
       display: table-row;
       margin: 0px;
       height: auto; }
-      /* line 86, ../sass/_overviewer.sass */
+      /* line 87, ../sass/_overviewer.sass */
       .overviewWS .descriptionContainer ul li h3, .overviewWS .descriptionContainer ul li h4 {
         display: table-cell;
         overflow: hidden;
         font-size: 13px;
         padding: 0px;
         padding-bottom: 5px; }
-      /* line 92, ../sass/_overviewer.sass */
+      /* line 93, ../sass/_overviewer.sass */
       .overviewWS .descriptionContainer ul li h3 {
         color: #666666; }
 
@@ -238,37 +239,47 @@
         .evaluator li.item ul li.fieldName span {
           width: 250px; }
 
-/* line 5, ../sass/workspaces.sass */
+/* line 1, ../sass/_shopping_cart.sass */
+.shopping_cart {
+  display: block;
+  background-color: #330033;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 400px;
+  height: 100%; }
+
+/* line 6, ../sass/workspaces.sass */
 .wsSwitcher {
   display: block;
   background: url(../gfx/icon.png) no-repeat;
   height: 30px;
   width: 30px; }
 
-/* line 11, ../sass/workspaces.sass */
+/* line 12, ../sass/workspaces.sass */
 .wsCollector {
   display: block;
   background-color: #330033;
   position: fixed;
   opacity: 0.8; }
-  /* line 16, ../sass/workspaces.sass */
+  /* line 17, ../sass/workspaces.sass */
   .wsCollector.wsHidden {
     display: none; }
-  /* line 18, ../sass/workspaces.sass */
+  /* line 19, ../sass/workspaces.sass */
   .wsCollector.top {
     height: 80px;
     top: -80px;
     left: 30%;
     width: 40%;
     border-radius: 0px 0px 100% 100%; }
-  /* line 24, ../sass/workspaces.sass */
+  /* line 25, ../sass/workspaces.sass */
   .wsCollector.right {
     border-radius: 100% 0px 0px 100%;
     right: -80px;
     top: 30%;
     height: 40%;
     width: 80px; }
-  /* line 30, ../sass/workspaces.sass */
+  /* line 31, ../sass/workspaces.sass */
   .wsCollector.left {
     border-radius: 0px 100% 100% 0px;
     top: 30%;
@@ -276,34 +287,46 @@
     height: 40%;
     width: 80px; }
 
-/* line 37, ../sass/workspaces.sass */
+/* line 38, ../sass/workspaces.sass */
 .wsWorkspace {
   display: inline-block;
   background-color: red;
   height: 100%;
   position: fixed;
-  opacity: 0.9;
+  opacity: 0.99;
   width: 100%; }
-  /* line 44, ../sass/workspaces.sass */
+  /* line 45, ../sass/workspaces.sass */
+  .wsWorkspace button.close {
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    z-index: 999; }
+  /* line 52, ../sass/workspaces.sass */
   .wsWorkspace.top {
     background-color: whitesmoke;
     top: -100%;
     left: 0px; }
-  /* line 48, ../sass/workspaces.sass */
+    /* line 56, ../sass/workspaces.sass */
+    .wsWorkspace.top .close {
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 40px; }
+  /* line 61, ../sass/workspaces.sass */
   .wsWorkspace.right {
     background-color: red;
     right: -100%;
     top: 0px; }
-  /* line 52, ../sass/workspaces.sass */
+  /* line 65, ../sass/workspaces.sass */
   .wsWorkspace.left {
     background-color: whitesmoke;
     left: -100%;
     top: 0px; }
-    /* line 56, ../sass/workspaces.sass */
+    /* line 69, ../sass/workspaces.sass */
     .wsWorkspace.left button.close {
-      background-color: black;
-      color: red;
-      position: absolute;
-      top: 20px;
-      right: 40px;
-      z-index: 999; }
+      top: 0px;
+      right: 0px;
+      height: 100%;
+      width: 40px; }

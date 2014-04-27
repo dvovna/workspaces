@@ -1,6 +1,7 @@
-@import "_variables"
-@import "_overviewer"
-@import "_evaluator"
+@import "variables"
+@import "overviewer"
+@import "evaluator"
+@import "shopping_cart"
 
 .wsSwitcher
     display: block
@@ -41,10 +42,22 @@
     position: fixed
     opacity: $ws_opacity
     width: $ws_width
+    button.close
+        background-color: black
+        border: none
+        color: white
+        font-size: 20px
+        position: absolute
+        z-index: 999
     &.top
         background-color: whitesmoke
         top: -$ws_height
         left: 0px
+        .close
+            bottom: 0px
+            left: 0px
+            width: 100%
+            height: 40px
     &.right
         background-color: red
         right: -$ws_width
@@ -54,9 +67,7 @@
         left: -$ws_width
         top: 0px
         button.close
-            background-color: black
-            color: red
-            position: absolute
-            top: 20px
-            right: 40px
-            z-index: 999
+            top: 0px
+            right: 0px
+            height: 100%
+            width: 40px

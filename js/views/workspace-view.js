@@ -12,7 +12,7 @@
 
             _.bindAll(this, "onClose");
 
-            this.$el.append($("<button class='close'>Close</button>"));
+            this.$el.append($("<button class='close'>X</button>"));
             this.$el.find(".close").bind("click", this.onClose);
         },
 
